@@ -1,0 +1,27 @@
+$black: #333;
+$grey: #777;
+$white: snow;
+$green: lightgreen;
+
+$standard-padding: 10px 16px;
+$wide-padding: 20px 32px;
+$small-border: 1px solid $black;
+
+%xCenter {
+  display: flex;
+  justify-content: center;
+}
+
+%xyCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: inline-block;
+  padding: $standard-padding;
+  border: $small-border;
+  cursor: pointer;
+}
