@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import appLogin from './appLogin';
+import appLoginStatus from './appLoginStatus';
+import appLoginUser from './appLoginUser'
 
 export default combineReducers({
-  appLogin
+  appLoginStatus,
+  appLoginUser
 })

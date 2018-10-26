@@ -25,3 +25,8 @@ $small-border: 1px solid $black;
   border: $small-border;
   cursor: pointer;
 }
+
+.msg {
+  color: darkred;
+  padding: $standard-padding;
+}

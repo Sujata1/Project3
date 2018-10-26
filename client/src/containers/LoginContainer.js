@@ -4,15 +4,15 @@ import {loginUser} from '../actions';
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loginStatus === 'LOGGED_IN',
-    username: state.username
+    loggedIn: state.appLoginStatus === 'LOGGED_IN',
+    username: state.appLoginUser
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: () => {
-      console.log('login');
+    loginUser: (e) => {
+      console.log('click handled')
       dispatch(loginUser('Mark'));
     }
   }
