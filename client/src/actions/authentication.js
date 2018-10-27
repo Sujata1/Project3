@@ -12,7 +12,6 @@ export const loginStatus = {
 // action creators
 export function loginUser(credentials) {
   // let config = {};
-
   return dispatch => {
     dispatch(requestLogin(credentials));
 
@@ -20,19 +19,22 @@ export function loginUser(credentials) {
     return apiCallStandin();
 
     function apiCallStandin() {
-      let response = {ok: true};
+      let response = {
+        ok: true,
+        user: {
+          name: 'TestUser',
+          idToken: 'TestIdToken'
+        }
+      };
       if(!response.ok) {
         dispatch(loginFail('This is an error message.'))
       } else {
-        localStorage.setItem('idToken', 'idToken'); //user.id_token
-        localStorage.setItem('accessToken', 'accessToken'); //user.access_token
-        dispatch(loginSuccess('TestUser')); //user
+        localStorage.setItem('idToken', response.user.idToken);
+        dispatch(loginSuccess(response.user));
       }
     }
   }
 }
-
-// TEMP
 
 export function requestLogin(credentials) {
   return {

@@ -15,7 +15,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     loginUser: (e) => {
-      console.log('click handled')
       dispatch(loginUser({username: 'testcredentials', password: 'test'}));
     }
   }
