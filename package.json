@@ -1,0 +1,29 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sujata1/Project3.git"
+  },
+  "author": "Sujata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sujata1/Project3/issues"
+  },
+  "homepage": "https://github.com/Sujata1/Project3#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.0.11",
+    "react-router-dom": "^4.3.1",
+    "socket.io": "^2.1.1"
+  }
+}
