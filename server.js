@@ -2,8 +2,9 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const routes = require("./routes");
+
 var mongoose = require("mongoose");
+// const routes = require("./routes");
 var db = require("./models");
 
 // Define middleware here
@@ -14,7 +15,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(routes);
+// Import routes and give the server access to them.
+var userroutes = require("./routes/api/users");
+
+app.use(userroutes);
 
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bbbe5e03f1b34fdfbe7823f7a7e6e3df');
