@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const articleRoutes = require("./users");
+const userRoutes = require("./users");
+const authRoutes = require("./auth");
 
-console.log("users api routes included");
-
-// Book routes
-router.use("/users", articleRoutes);
+router.use("/users", userRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;
