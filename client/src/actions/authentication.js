@@ -13,35 +13,32 @@ export const loginStatus = {
 
 // action creators
 export function loginUser(credentials) {
-  // let config = {};
   return dispatch => {
-    dispatch(requestLogin(credentials));
-
-    //TEMP - will be API call to request authentication
-    return apiCallStandin();
-
-    function apiCallStandin() {
-      let response = {
-        ok: true,
-        user: {
-          name: 'HardCodedDummyResponse',
-          idToken: 'TestIdToken'
-        }
-      };
-      if(!response.ok) {
-        dispatch(loginFail('User authentication failed.'))
-      } else {
-        localStorage.setItem('idToken', response.user.idToken);
-        dispatch(loginSuccess(response.user));
+    dispatch(requestLogin());
+    fetch('/find', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(credentials)
+    }).then(response => {
+      if(response.ok) {
+        response.json().then(response => {
+          if(!response.validate) {
+            dispatch(loginFail('User authentication failed.'))
+          } else {
+            localStorage.setItem('idToken', response.token);
+            dispatch(loginSuccess(response.username));
+          }
+        })
       }
-    }
+    })
   }
 }
 
-export function requestLogin(credentials) {
+export function requestLogin() {
   return {
-    type: LOGIN_REQUEST,
-    credentials
+    type: LOGIN_REQUEST
   };
 }
 

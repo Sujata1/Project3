@@ -1,14 +1,15 @@
 import {connect} from 'react-redux';
 import Login from '../components/Login';
-import {loginUser} from '../actions/authentication';
+import {loginUser, loginStatus as status} from '../actions/authentication';
 
 const mapStateToProps = state => {
-  const {userAuthentication} = state;
-  const {loginStatus, errorMsg} = userAuthentication;
+  const {loginStatus, errorMsg} = state.userAuthentication;
+  const buttonText = loginStatus === status.IN_PROGRESS ? '◌' : 'Login';
 
   return {
     loginStatus,
-    errorMsg
+    errorMsg,
+    buttonText,
   }
 }
 

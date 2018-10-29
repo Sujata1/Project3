@@ -6,18 +6,21 @@ const userAuthentication =
       switch(action.type) {
         case LOGIN_REQUEST:
           return Object.assign({}, state, {
-            loginStatus: loginStatus.IN_PROGRESS
+            loginStatus: loginStatus.IN_PROGRESS,
+            errorMsg: '',
+            currentUser: null
           });
         case LOGIN_SUCCESS:
-        console.log(action)
           return Object.assign({}, state, {
             loginStatus: loginStatus.LOGGED_IN,
-            currentUser: action.user.name
+            errorMsg: '',
+            currentUser: action.user
           })
         case LOGIN_FAIL:
           return Object.assign({}, state, {
             loginStatus: loginStatus.LOGGED_OUT,
-            errorMsg: action.msg
+            errorMsg: action.msg,
+            currentUser: null
           })
         case LOGOUT_REQUEST: 
           return Object.assign({}, state, {
@@ -26,6 +29,7 @@ const userAuthentication =
         case LOGOUT_COMPLETE:
           return Object.assign({}, state, {
             loginStatus: loginStatus.LOGGED_OUT,
+            errorMsg: '',
             currentUser: null
           })
         default:

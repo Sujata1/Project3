@@ -25,8 +25,9 @@ class Login extends React.Component {
             onChange={e => this.setState({passwordInput: e.target.value})}>
           </input>
           <div>
-            <span className='button' onClick={e => this.loginUser(this.state)}>Login</span>
-            {/* loading circle ◌ */}
+            <span className='button' onClick={e => this.loginUser(this.state)}>
+              <span className={this.props.buttonClass}>{this.props.buttonText}</span>
+            </span>
             <span className='button'>Create Account</span>
           </div>
         </form>

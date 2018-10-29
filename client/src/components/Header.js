@@ -6,7 +6,7 @@ const Header = props => {
       {props.isLoggedIn && 
         <div>
           {props.currentUser && 
-            <span>Welcome, {props.currentUser}.</span>}
+            <span>Welcome, {props.currentUser}.  </span>}
           <span className='button' onClick={() => props.logout()}>Logout</span>
         </div>
       }
