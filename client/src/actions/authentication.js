@@ -2,6 +2,8 @@
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_COMPLETE = 'LOGOUT_COMPLETE';
 
 export const loginStatus = {
   LOGGED_IN: 'LOGGED_IN',
@@ -22,12 +24,12 @@ export function loginUser(credentials) {
       let response = {
         ok: true,
         user: {
-          name: 'TestUser',
+          name: 'HardCodedDummyResponse',
           idToken: 'TestIdToken'
         }
       };
       if(!response.ok) {
-        dispatch(loginFail('This is an error message.'))
+        dispatch(loginFail('User authentication failed.'))
       } else {
         localStorage.setItem('idToken', response.user.idToken);
         dispatch(loginSuccess(response.user));
@@ -39,7 +41,6 @@ export function loginUser(credentials) {
 export function requestLogin(credentials) {
   return {
     type: LOGIN_REQUEST,
-    loginStatus: loginStatus.IN_PROGRESS,
     credentials
   };
 }
@@ -47,15 +48,26 @@ export function requestLogin(credentials) {
 export function loginSuccess(user) {
   return {
     type: LOGIN_SUCCESS,
-    loginStatus: loginStatus.LOGGED_IN,
-    idToken: user.idToken
+    user
   }
 }
 
 export function loginFail(msg) {
   return {
     type: LOGIN_FAIL,
-    loginStatus: loginStatus.LOGGED_OUT,
     msg
+  }
+}
+
+export function logout() {
+  return dispatch => {
+    localStorage.removeItem('idToken');
+    dispatch(logoutComplete());
+  }
+}
+
+export function logoutComplete() {
+  return {
+    type: LOGOUT_COMPLETE
   }
 }

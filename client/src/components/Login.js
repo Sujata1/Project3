@@ -26,6 +26,7 @@ class Login extends React.Component {
           </input>
           <div>
             <span className='button' onClick={e => this.loginUser(this.state)}>Login</span>
+            {/* loading circle ◌ */}
             <span className='button'>Create Account</span>
           </div>
         </form>

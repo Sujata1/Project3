@@ -15,11 +15,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     loginUser: (componentState) => {
-      console.log(componentState);
-      dispatch(loginUser({
-        username: componentState.usernameInput, 
-        password: componentState.passwordInput
-      }));
+      if(componentState.usernameInput && componentState.passwordInput) {
+        dispatch(loginUser({
+          username: componentState.usernameInput, 
+          password: componentState.passwordInput
+        }));
+      }
     }
   }
 }
