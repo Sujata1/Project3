@@ -14,8 +14,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: (e) => {
-      dispatch(loginUser({username: 'testcredentials', password: 'test'}));
+    loginUser: (componentState) => {
+      console.log(componentState);
+      dispatch(loginUser({
+        username: componentState.usernameInput, 
+        password: componentState.passwordInput
+      }));
     }
   }
 }

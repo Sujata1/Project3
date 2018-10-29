@@ -12,7 +12,6 @@ export default function(ProtectedComponent) {
   }
 
   const mapStateToProps = state => {
-    console.log(state);
     return {
       loginStatus: state.userAuthentication.loginStatus
     }

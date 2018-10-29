@@ -6,19 +6,26 @@ import './Login.css';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      usernameInput: '', 
+      passwordInput: ''
+    }
     this.loginUser = this.props.loginUser.bind(this);
   }
   render() {
-    // TEMP
-    console.log(this.props)
-  
     return (
       <section id='login'>
         <form>
-          <input type='text' placeholder='User Email'></input>
-          <input type='password' placeholder='Password'></input>
+          <input type='text' placeholder='User Email' 
+            value={this.state.usernameInput}
+            onChange={e => this.setState({usernameInput: e.target.value})}>
+          </input>
+          <input type='password' placeholder='Password' 
+            value={this.state.passwordInput}
+            onChange={e => this.setState({passwordInput: e.target.value})}>
+          </input>
           <div>
-            <span className='button' onClick={this.loginUser}>Login</span>
+            <span className='button' onClick={e => this.loginUser(this.state)}>Login</span>
             <span className='button'>Create Account</span>
           </div>
         </form>
