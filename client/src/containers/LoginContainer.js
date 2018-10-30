@@ -22,9 +22,6 @@ const mapDispatchToProps = dispatch => {
           password: componentState.passwordInput
         }));
       }
-    },
-    createAccount: e => {
-      console.log(this);
     }
   }
 }

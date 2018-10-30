@@ -11,7 +11,6 @@ class Login extends React.Component {
       passwordInput: ''
     }
     this.loginUser = this.props.loginUser.bind(this);
-    this.createAccount = this.props.createAccount.bind(this);
   }
   render() {
     return (

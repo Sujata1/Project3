@@ -58,21 +58,21 @@ export function createUser(containerState) {
   }
 }
 
-export function createUserRequest() {
+function createUserRequest() {
   return {
     type: CREATEUSER_REQUEST,
     userCreationStatus: userCreationStatus.IN_PROGRESS
   }
 }
 
-export function createUserFail(msg) {
+function createUserFail(msg) {
   return {
     type: CREATEUSER_FAIL,
     msg
   }
 }
 
-export function createUserSuccess() {
+function createUserSuccess() {
   return {
     type: CREATEUSER_SUCCESS
   }
