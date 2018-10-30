@@ -11,6 +11,7 @@ class Login extends React.Component {
       passwordInput: ''
     }
     this.loginUser = this.props.loginUser.bind(this);
+    this.createAccount = this.props.createAccount.bind(this);
   }
   render() {
     return (
@@ -28,7 +29,7 @@ class Login extends React.Component {
             <span className='button' onClick={e => this.loginUser(this.state)}>
               <span className={this.props.buttonClass}>{this.props.buttonText}</span>
             </span>
-            <span className='button'>Create Account</span>
+            <span className='button' onClick={e => this.props.history.push('/signup')}>Create Account</span>
           </div>
         </form>
         {this.props.loginStatus === loginStatus.LOGGED_IN &&
