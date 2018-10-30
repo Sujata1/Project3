@@ -110,7 +110,7 @@ app.get("/api/article", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ptf";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ptfdb";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
