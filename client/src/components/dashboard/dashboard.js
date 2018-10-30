@@ -3,6 +3,7 @@ import RecentArticles from "./recent.js"
 import Topsource from "./top.js"
 import Search from "/.search.js"
 import Headlines from "./headines.js"
+import RateModal from "./rateModal.js"
 
 
 const Dashboard = props => {
@@ -24,6 +25,7 @@ const Dashboard = props => {
 </div>
 
 </div> 
+<RateModal/>
 </div>
   )
 }

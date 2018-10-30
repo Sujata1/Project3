@@ -11,7 +11,7 @@ const Search= props => {
         <form>
                 <div class="form-group">
                   <label for="searchbar">Search</label>
-                  <input type="text" class="form-control" id="searchbar" placeholder="search">
+                  <input type="text" class="form-control" id="searchbar" placeholder="search"/>
                 </div>
                 
                 <div class="form-group">

@@ -7,6 +7,7 @@ import './App.css';
 class App extends React.Component {
   render() {
     return (
+   
       <div>
         <HeaderContainer />
         <main>
@@ -17,6 +18,7 @@ class App extends React.Component {
           </Router>
         </main>
       </div>
+      
     );
   }
 }
