@@ -4,38 +4,22 @@ var Schema = mongoose.Schema;
 
 var SourceSchema = new Schema({
 
-    sourceid: {
-        type: String,
-        required: true
-    },
     name: {
         type: String,
         required: true
     },
-    description: {
-        type: String,
+    credibility: {
+        type: Number,
         required: true
     },
-    url: {
-        type: String,
+    integrity: {
+        type: Number,
         required: true
     },
-    category: {
-        type: String,
+    accountability: {
+        type: Number,
         required: true
-    },
-    language: {
-        type: String,
-        required: true
-    },
-    country: {
-        type: String,
-        required: true
-    },
-    article: [{
-        type: Schema.Types.ObjectId,
-        ref: "article"
-    }]
+    }
 });
 
 var Source = mongoose.model("Source", SourceSchema);
