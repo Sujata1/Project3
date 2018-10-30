@@ -8,8 +8,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createAccount: userInfo => {
-      dispatch(createUser(userInfo));
+    createAccount: userInput => {
+      dispatch(createUser(userInput));
     }
   }
 }
