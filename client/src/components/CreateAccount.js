@@ -28,8 +28,11 @@ class CreateAccount extends React.Component {
             value={this.state.confirmPasswordInput}
             onChange={e => this.setState({confirmPasswordInput: e.target.value})}>
           </input>
-          <div className='button' onClick={e => this.props.createAccount(this.state)}>Create Your Account</div>
+          <div className='button' onClick={e => this.props.createAccount(this.state)}>{this.props.buttonText}</div>
         </form>
+        {this.props.errorMsg && (
+          <div className='msg'>{this.props.errorMsg}</div>
+        )}
       </section>
     )
   }

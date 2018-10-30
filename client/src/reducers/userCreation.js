@@ -6,6 +6,16 @@ const userCreation = (state = {
   userCreationStatus: userCreationStatus.NONE
 }, action) => {
   switch(action.type) {
+    case CREATEUSER_REQUEST:
+      return {
+        userCreationStatus: userCreationStatus.IN_PROGRESS,
+        errorMsg: ''
+      }
+    case CREATEUSER_FAIL:
+      return {
+        userCreationStatus: userCreationStatus.FAILED,
+        errorMsg: action.msg
+      }
     default:
       return state;
   }

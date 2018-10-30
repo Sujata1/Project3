@@ -11,7 +11,7 @@ router.route("/find")
 router.route("/findByEmail")
   .post(usersController.findByEmail);
 
-router.route("/")
+router.route("/createUser")
   .post(usersController.create);
 
 module.exports = router;

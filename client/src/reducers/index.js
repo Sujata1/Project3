@@ -3,5 +3,6 @@ import userAuthentication from './userAuthentication';
 import userCreation from './userCreation';
 
 export default combineReducers({
-  userAuthentication
+  userAuthentication,
+  userCreation
 })
