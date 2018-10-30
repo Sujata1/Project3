@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import {loginStatus} from '../actions/authentication';
+import {loginStatus} from '../actions/authenticate';
 import './Login.css';
 
 class Login extends React.Component {

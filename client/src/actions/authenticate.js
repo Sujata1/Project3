@@ -4,7 +4,6 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
 export const LOGOUT_COMPLETE = 'LOGOUT_COMPLETE';
-export const CREATE_ACCOUNT = 'CREATE_ACCOUNT';
 
 export const loginStatus = {
   LOGGED_IN: 'LOGGED_IN',
@@ -70,10 +69,3 @@ export function logoutComplete() {
   }
 }
 
-export function createAccount() {
-  return dispatch => {
-    return {
-      type: CREATE_ACCOUNT
-    }
-  }
-}
