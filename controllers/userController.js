@@ -24,7 +24,6 @@ module.exports = {
             console.log("token: " + token);
             res.json({
               validate: true,
-              message: 'Welcome ' + dbUser.username,
               token: token,
               id: dbUser.id,
               email: dbUser.email
@@ -59,7 +58,6 @@ module.exports = {
 
             res.json({
               validate: true,
-              message: 'Welcome ' + dbUser.firstname,
               token: token,
               id: dbUser.id,
               email: dbUser.email
