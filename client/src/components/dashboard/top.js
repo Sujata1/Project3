@@ -1,20 +1,19 @@
 
 import React from "react";
-import ReadButton from "./read.js";
-import Newsline from "./newsline.js"
+import Topsources from "./topsources.js"
 
 
-const Topsource= props => {
+const Top= props => {
     return (
-        <div class="topsource">      
+        <div class="top">      
  <h3>Top source</h3>
 
- <Newsline/>
- <ReadButton/>
+<Topsources/>
+
 </div>      
     )
   }
   
-  export default Topsource;
+  export default Top;
 
 
