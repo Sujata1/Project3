@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     loginUser: (componentState) => {
       if(componentState.usernameInput && componentState.passwordInput) {
         dispatch(loginUser({
-          username: componentState.usernameInput, 
+          email: componentState.usernameInput, 
           password: componentState.passwordInput
         }));
       }
