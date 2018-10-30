@@ -94,42 +94,37 @@ module.exports = {
       .then(data => {
         if(data) {
           res.json({err: 'This email is already associated with an account.'})
-        }
-      })
-
-    // db.User
-    //   .create(req.body)
-    //   .then(dbUser =>{ 
-        
-    //     if (dbUser !== null) {
-             
-    //       var user = dbUser.username;
-    //       jwt.sign({ user }, 'secretkey', { expiresIn: '300s' }, (err, token) => {
-            
-    //           res.json({
-    //               validate: true,
-    //               message: 'Welcome ' + dbUser.firstname,
-    //               token: token,
-    //               id: dbUser.id,
-    //               username: dbUser.username,
-    //               email: dbUser.email
-    //           });
-    //       });
-    //   } else {
-    //     console.log("user null in create");
-    //       res.json({
-    //           validate: false
-    //       });
-    //   }
-        
-    //     res.json(dbModel)
-      
-    //   })
-    //   .catch(err => {
-    //     res.json({
-    //       status: "422",
-    //       validate: false
-    //   });
-    //   });
-  },
+        } else {
+          db.User
+          .create(req.body)
+          .then(dbUser => {
+            if (dbUser !== null) {
+                
+              var user = dbUser.username;
+              jwt.sign({ user }, 'secretkey', { expiresIn: '300s' }, (err, token) => {
+              
+                res.json({
+                    validate: true,
+                    token: token,
+                    id: dbUser.id,
+                    username: dbUser.username,
+                    email: dbUser.email
+                });
+              });
+          } else {
+            console.log("user null in create");
+              res.json({
+                  validate: false
+              });
+          }
+          })
+          .catch(err => {
+            res.json({
+              status: "422",
+              validate: false
+          });
+          });
+          }
+        })
+  }
 };

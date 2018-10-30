@@ -17,11 +17,11 @@ class Login extends React.Component {
     return (
       <section id='login'>
         <form>
-          <input type='text' placeholder='User Email' 
+          <input type='text' placeholder='User Email' maxLength='35' autoComplete='email'
             value={this.state.usernameInput}
             onChange={e => this.setState({usernameInput: e.target.value})}>
           </input>
-          <input type='password' placeholder='Password' 
+          <input type='password' placeholder='Password' maxLength='14' autoComplete='current-password'
             value={this.state.passwordInput}
             onChange={e => this.setState({passwordInput: e.target.value})}>
           </input>
