@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Login from '../components/Login';
-import {loginUser, loginStatus as status} from '../actions/authentication';
+import {loginUser, loginStatus as status} from '../actions/authenticate';
 
 const mapStateToProps = state => {
   const {loginStatus, errorMsg} = state.userAuthentication;
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     loginUser: (componentState) => {
       if(componentState.usernameInput && componentState.passwordInput) {
         dispatch(loginUser({
-          username: componentState.usernameInput, 
+          email: componentState.usernameInput, 
           password: componentState.passwordInput
         }));
       }

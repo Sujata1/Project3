@@ -7,11 +7,7 @@ var TopicSchema = new Schema({
     topic: {
         type: String,
         required: true
-    },
-    article: [{
-        type: Schema.Types.ObjectId,
-        ref: "article"
-    }]
+    }
 });
 
 var Topic = mongoose.model("Topic", TopicSchema);

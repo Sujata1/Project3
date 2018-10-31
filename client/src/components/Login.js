@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import {loginStatus} from '../actions/authentication';
+import {loginStatus} from '../actions/authenticate';
 import './Login.css';
 
 class Login extends React.Component {
@@ -16,11 +16,11 @@ class Login extends React.Component {
     return (
       <section id='login'>
         <form>
-          <input type='text' placeholder='User Email' 
+          <input type='text' placeholder='User Email' maxLength='35' autoComplete='email'
             value={this.state.usernameInput}
             onChange={e => this.setState({usernameInput: e.target.value})}>
           </input>
-          <input type='password' placeholder='Password' 
+          <input type='password' placeholder='Password' maxLength='14' autoComplete='current-password'
             value={this.state.passwordInput}
             onChange={e => this.setState({passwordInput: e.target.value})}>
           </input>
@@ -28,7 +28,7 @@ class Login extends React.Component {
             <span className='button' onClick={e => this.loginUser(this.state)}>
               <span className={this.props.buttonClass}>{this.props.buttonText}</span>
             </span>
-            <span className='button'>Create Account</span>
+            <span className='button' onClick={e => this.props.history.push('/signup')}>Create Account</span>
           </div>
         </form>
         {this.props.loginStatus === loginStatus.LOGGED_IN &&

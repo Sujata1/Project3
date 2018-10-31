@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {loginStatus} from '../actions/authentication';
+import {loginStatus} from '../actions/authenticate';
 
 export default function(ProtectedComponent) {
   class Authenticate extends React.Component {
