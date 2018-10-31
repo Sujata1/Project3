@@ -4,7 +4,7 @@ import HeaderContainer from '../containers/HeaderContainer';
 import LoginContainer from '../containers/LoginContainer';
 import CreateAccountContainer from '../containers/CreateAccountContainer';
 import Authenticate from '../containers/Authenticate';
-import Home from '../components/Home';
+import DashboardContainer from '../containers/DashboardContainer';
 import './App.css';
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
             <Switch>
               <Route path='/signin' component={LoginContainer} />
               <Route path='/signup' component={CreateAccountContainer} />
-              <Route path='/' component={Authenticate(Home)} />
+              <Route path='/' component={Authenticate(DashboardContainer)} />
             </Switch>
           </Router>
         </main>
