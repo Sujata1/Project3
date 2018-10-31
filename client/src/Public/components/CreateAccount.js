@@ -1,6 +1,6 @@
 import React from 'react';
-import {userCreationStatus} from '../actions/createUser';
-import './Login.css';
+import {userCreationStatus} from '../../actions/createUser';
+import '../../assets/css/Login.css';
 
 class CreateAccount extends React.Component {
   constructor() {

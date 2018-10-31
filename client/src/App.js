@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import HeaderContainer from '../containers/HeaderContainer';
-import LoginContainer from '../containers/LoginContainer';
-import CreateAccountContainer from '../containers/CreateAccountContainer';
-import Authenticate from '../containers/Authenticate';
-import DashboardContainer from '../containers/DashboardContainer';
-import './App.css';
+import HeaderContainer from './Public/containers/HeaderContainer';
+import LoginContainer from './Public/containers/LoginContainer';
+import CreateAccountContainer from './Public/containers/CreateAccountContainer';
+import Authenticate from './Public/containers/Authenticate';
+import DashboardContainer from './Dashboard/containers/DashboardContainer';
+import './assets/css/App.css';
 
 class App extends React.Component {
   render() {

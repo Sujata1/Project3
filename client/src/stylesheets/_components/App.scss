@@ -47,7 +47,7 @@ section {
 
 #background {
   @extend %page-background;
-  background-image: url('./assets/images/newspaper-background.jpg');
+  background-image: url('../images/newspaper-background.jpg');
   background-size: cover;
 
   animation: landing-image;
