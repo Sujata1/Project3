@@ -20,4 +20,4 @@
 # yarn-debug.log*
 # yarn-error.log*
 
-/src/components/*.css
+client/src/components/*.css
