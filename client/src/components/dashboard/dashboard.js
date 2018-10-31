@@ -4,9 +4,6 @@ import Search from "./search.js"
 import Articles from "./articles.js"
 import RateModal from "./rateModal.js"
 
-
-
-
 const Dashboard = props => {
   return (
     
@@ -30,6 +27,7 @@ const Dashboard = props => {
 <div class="row">
 <div class="col-md-12"> 
 <Articles news="Trump stumped"/>
+
 </div>
 </div>
 
