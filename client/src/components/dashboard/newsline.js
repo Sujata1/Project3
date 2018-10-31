@@ -3,10 +3,11 @@
 import React from "react";
 
 
+
+
 const Newsline= props => {
     return (
-        <p> {props} </p>
-            
+        <p> {props.news} </p>        
     )
   }
   

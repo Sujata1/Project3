@@ -8,7 +8,7 @@ const Top= props => {
         <div class="top">      
  <h3>Top source</h3>
 
-<Topsources/>
+<Topsources name={props.name} score={props.score}/>
 
 </div>      
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HeaderContainer from '../containers/HeaderContainer';
-import LoginContainer from '../containers/LoginContainer';
+import Dashboard from '../components/dashboard/dashboard';
 import './App.css';
 
 class App extends React.Component {
@@ -13,7 +13,7 @@ class App extends React.Component {
         <main>
           <Router>
             <Switch>
-              <Route path='/' component={LoginContainer} />
+              <Route path='/' component={Dashboard} />
             </Switch>
           </Router>
         </main>

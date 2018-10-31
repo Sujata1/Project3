@@ -1,8 +1,10 @@
 import React from "react";
 import Top from "./top.js"
-import Search from "/.search.js"
-import Articles from "./Articles.js"
+import Search from "./search.js"
+import Articles from "./articles.js"
 import RateModal from "./rateModal.js"
+
+
 
 
 const Dashboard = props => {
@@ -15,7 +17,7 @@ const Dashboard = props => {
 
 <div class="row"> 
 <div class="col-md-12">
-<Top/>
+<Top name="CNN" score="-10"/>
 </div>
 </div>
 
@@ -27,11 +29,10 @@ const Dashboard = props => {
 
 <div class="row">
 <div class="col-md-12"> 
-<Articles/>
-</div> 
+<Articles news="Trump stumped"/>
+</div>
 </div>
 
-<RateModal/>
 </div>
 </div>
   )
