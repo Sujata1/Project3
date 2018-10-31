@@ -1,8 +1,8 @@
 import React from "react";
-import RecentArticles from "./recent.js"
-import Topsource from "./top.js"
-import Search from "./search.js"
-import Headlines from "./headlines.js"
+import Top from "./top.js"
+import Search from "/.search.js"
+import Articles from "./Articles.js"
+import RateModal from "./rateModal.js"
 
 
 const Dashboard = props => {
@@ -13,17 +13,26 @@ const Dashboard = props => {
 
 <div class="appbox">
 
-<div class="col-md-5 leftside">
-<RecentArticles/>
-<Topsource/>
+<div class="row"> 
+<div class="col-md-12">
+<Top/>
+</div>
 </div>
 
-<div class="col-md-7 rightside">
+<div class="row"> 
+<div class="col-md-12">
 <Search/>
-<Headlines/>
+</div>
 </div>
 
+<div class="row">
+<div class="col-md-12"> 
+<Articles/>
 </div> 
+</div>
+
+<RateModal/>
+</div>
 </div>
   )
 }

@@ -5,10 +5,11 @@ import React from "react";
 
 const Newsline= props => {
     return (
-        <p></p>    
+        <p> {props} </p>
+            
     )
   }
   
-export default Newsline;
+  export default Newsline;
 
 

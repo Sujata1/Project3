@@ -11,7 +11,7 @@ const Search= props => {
         <form>
                 <div class="form-group">
                   <label for="searchbar">Search</label>
-                  <input type="text" class="form-control" id="searchbar" placeholder="search" />
+                  <input type="text" class="form-control" id="searchbar" placeholder="search"/>
                 </div>
                 
                 <div class="form-group">
@@ -24,17 +24,6 @@ const Search= props => {
                     <option>5</option>
                   </select>
                 </div>
-
-                <div class="form-group">
-                        <label for="category">Category</label>
-                        <select class="form-control" id="category">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
                       <button type="submit" class="btn btn-primary go">Go!</button>
               </form>
 
