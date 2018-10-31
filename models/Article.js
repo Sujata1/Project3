@@ -31,11 +31,7 @@ var ArticleSchema = new Schema({
   },
   content: {
     type: String,
-  },
-  source: [{
-    type: Schema.Types.ObjectId,
-    ref: "source"
-}]
+  }
 });
 
 var Article = mongoose.model("Article", ArticleSchema);
