@@ -1,10 +1,27 @@
-import React from 'react';
+import {connect} from 'react-redux';
 import Header from '../components/Header';
+import {logout, loginStatus} from '../actions/authenticate';
 
-class HeaderContainer extends React.Component {
-  render() {
-    return <Header />;
+const mapStateToProps = state => {
+  const isLoggedIn = state.userAuthentication.loginStatus === loginStatus.LOGGED_IN;
+  if(isLoggedIn && state.userAuthentication.currentUser) {
+    return {
+      isLoggedIn,
+      currentUser: state.userAuthentication.currentUser
+    };
+  }
+  return {isLoggedIn};
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      dispatch(logout());
+    }
   }
 }
 
-export default HeaderContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

@@ -1,19 +1,27 @@
 import {connect} from 'react-redux';
 import Login from '../components/Login';
-import {loginUser} from '../actions';
+import {loginUser, loginStatus as status} from '../actions/authenticate';
 
 const mapStateToProps = state => {
+  const {loginStatus, errorMsg} = state.userAuthentication;
+  const buttonText = loginStatus === status.IN_PROGRESS ? '◌' : 'Login';
+
   return {
-    loggedIn: state.appLoginStatus === 'LOGGED_IN',
-    username: state.appLoginUser
+    loginStatus,
+    errorMsg,
+    buttonText,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: (e) => {
-      console.log('click handled')
-      dispatch(loginUser('Mark'));
+    loginUser: (componentState) => {
+      if(componentState.usernameInput && componentState.passwordInput) {
+        dispatch(loginUser({
+          email: componentState.usernameInput, 
+          password: componentState.passwordInput
+        }));
+      }
     }
   }
 }
