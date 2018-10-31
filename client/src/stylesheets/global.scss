@@ -1,11 +1,19 @@
 $black: #333;
 $grey: #777;
+$shadow: #e5e1e1;
 $white: snow;
-$green: lightgreen;
+$green: #59a979;
+$blue: #3e5f76;
+
+$body-font: 'Open Sans', Arial, sans-serif;
+$header-font: 'Raleway', Arial, sans-serif;
 
 $standard-padding: 10px 16px;
 $wide-padding: 20px 32px;
-$small-border: 1px solid $black;
+
+@mixin thin-border($color) {
+  border: 1px solid $color;
+}
 
 %xCenter {
   display: flex;
@@ -20,15 +28,22 @@ $small-border: 1px solid $black;
 }
 
 .button {
+  @include thin-border($black);
   display: inline-block;
   padding: $standard-padding;
-  border: $small-border;
   text-align: center;
   cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.5s;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
   }
+}
+
+input {
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .msg {

@@ -9,6 +9,8 @@ body {
   min-height: 100%;
   @extend %xyCenter;
   position: relative;
+  font-family: $body-font;
+  font-size: 16px;
 }
 
 header {
@@ -18,10 +20,15 @@ header {
   left: 0;
   right: 0;
   padding: $wide-padding;
-  background-color: $grey;
+  background-color: $blue;
   color: $white;
 }
 
 main {
 
+}
+
+section {
+  background-image: linear-gradient(to bottom right, rgba(0,0,0,0.1), transparent);
+  @include thin-border($shadow);
 }
