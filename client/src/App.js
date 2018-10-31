@@ -10,6 +10,7 @@ import './assets/css/App.css';
 class App extends React.Component {
   render() {
     return (
+   
       <div>
         <HeaderContainer />
         <main>
@@ -23,6 +24,7 @@ class App extends React.Component {
         </main>
         <div id='background'></div>
       </div>
+      
     );
   }
 }
