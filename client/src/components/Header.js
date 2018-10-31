@@ -3,6 +3,7 @@ import React from 'react';
 const Header = props => {
   return (
     <header>
+      <div id='headerText'>PRESS THE FREEDOM</div>
       {props.isLoggedIn && 
         <div>
           {props.currentUser && 

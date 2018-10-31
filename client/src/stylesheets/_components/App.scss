@@ -9,26 +9,59 @@ body {
   min-height: 100%;
   @extend %xyCenter;
   position: relative;
+  overflow: hidden;
   font-family: $body-font;
   font-size: 16px;
 }
 
 header {
-  @extend %xCenter;
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  padding: $wide-padding;
+  padding: 0 10px;
   background-color: $blue;
   color: $white;
-}
 
-main {
+  & > div {
+    @extend %xCenter;
+    align-items: center;
+  }
 
+  #headerText {
+    font-size: 42px;
+    font-weight: bold;
+    font-family: $header-font;
+    letter-spacing: 10px;
+    color: $light-black;
+  }
 }
 
 section {
-  background-image: linear-gradient(to bottom right, rgba(0,0,0,0.1), transparent);
+  @extend %back-gradient;
   @include thin-border($shadow);
+}
+
+#background {
+  position: fixed;
+  z-index: -10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 8px;
+  background-image: url('./assets/images/newspaper-background.jpg');
+  background-size: cover;
+
+  animation: landing-image;
+  animation-duration: 6s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+@keyframes landing-image {
+  from {transform: scale(1.08)}
+  to {transform: scale(1)};
 }
