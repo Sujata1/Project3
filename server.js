@@ -104,9 +104,11 @@ app.get("/api/article/:q", (req, res) => {
     res.json(err);
   });
 });
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/ptf";
 
 mongoose.Promise = Promise;
