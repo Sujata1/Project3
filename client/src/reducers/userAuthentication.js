@@ -1,4 +1,8 @@
-import {loginStatus, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_REQUEST, LOGOUT_COMPLETE} from '../actions/authentication';
+import {
+  loginStatus, 
+  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAIL, 
+  LOGOUT_REQUEST, LOGOUT_COMPLETE
+} from '../actions/authenticate';
 
 const userAuthentication = 
   (state = {loginStatus: localStorage.getItem('idToken') ? 

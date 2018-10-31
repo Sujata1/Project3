@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Header from '../components/Header';
-import {logout, loginStatus} from '../actions/authentication';
+import {logout, loginStatus} from '../actions/authenticate';
 
 const mapStateToProps = state => {
   const isLoggedIn = state.userAuthentication.loginStatus === loginStatus.LOGGED_IN;
