@@ -41,7 +41,7 @@ class CreateAccount extends React.Component {
               let regex = /.+@.+\..+/;
               this.setState({
                 emailInput: e.target.value,
-                validEmail: regex.test(e.target.value)
+                validEmail: !e.target.value.length || regex.test(e.target.value)
               })
             }}>
           </input>
