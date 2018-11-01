@@ -2,11 +2,19 @@ import {connect} from 'react-redux';
 import Search from '../components/Search';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    searchResults: ['result', 'result']
+  };
 }
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    clickSearch: componentState => {
+      if(componentState.searchInput) {
+        console.log('search!');
+      }
+    }
+  };
 }
 
 export default connect(

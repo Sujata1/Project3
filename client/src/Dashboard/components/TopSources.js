@@ -1,8 +1,9 @@
 import React from "react";
+import dashboard from '../../assets/css/Dashboard.module.css';
 
 const TopSources = props => {
     return (
-        <section>
+        <section className={dashboard.section}>
             These are the top sources
         </section>       
     )

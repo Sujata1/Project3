@@ -6,13 +6,15 @@ import RecentArticlesContainer from '../containers/RecentArticlesContainer';
 const Dashboard = props => {
   return (
     <div>
-      {props.recentArticles.length && (
+      {Boolean(props.recentArticles.length) && (
         <RecentArticlesContainer />
       )}
-      {props.topSources.length && (
+
+      <SearchContainer/>
+      
+      {Boolean(props.topSources.length) && (
         <TopSourcesContainer />
       )}
-      <SearchContainer/>
     </div>
   )
 }

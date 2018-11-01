@@ -1,16 +1,20 @@
 $black: #333;
-$light-black: rgba(0,0,0,0.1);
+$light-black: rgba(0,0,0,0.05);
 $grey: #777;
 $shadow: #e5e1e1;
 $white: snow;
 $green: #59a979;
+$dark-green: #3e7855;
 $blue: #3e5f76;
+
+$small-breakpoint: 540px;
 
 $body-font: 'Open Sans', Arial, sans-serif;
 $header-font: 'Raleway', Arial, sans-serif;
 
 $standard-padding: 10px 16px;
 $wide-padding: 20px 32px;
+$vertical-space: 6px;
 
 @mixin thin-border($color) {
   border: 1px solid $color;

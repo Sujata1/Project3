@@ -1,5 +1,15 @@
 @import '../global.scss';
 
 .section {
-  background-color: $white;
+  background-color: $dark-green;
+  margin: $standard-padding;
+
+  & > * {
+    margin-bottom: $vertical-space;
+  }
+
+  @media screen and (max-width: $small-breakpoint) {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

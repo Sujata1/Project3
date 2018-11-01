@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  min-width: 375px;
   min-height: 100%;
   @extend %xyCenter;
   position: relative;
@@ -20,34 +21,37 @@ body {
 
 header {
   @extend %back-gradient;
-  display: flex;
-  justify-content: space-between;
+  min-height: 44px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  padding: 0 10px;
+  text-align: right;
+  overflow: hidden;
+  padding: 2px 10px;
   background-color: $blue;
   color: $white;
 
-  & > div {
-    @extend %xCenter;
-    align-items: center;
-  }
-
   #headerText {
+    position: absolute;
     font-size: 42px;
     font-weight: bold;
     font-family: $header-font;
     letter-spacing: 10px;
+    white-space: nowrap;
     color: $light-black;
   }
+}
+
+main {
+  margin-top: 54px;
 }
 
 section {
   @extend %back-gradient;
   @include thin-border($shadow);
   margin: 0 auto;
+  padding: $wide-padding;
 }
 
 .button {

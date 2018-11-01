@@ -1,6 +1,6 @@
 import React from "react";
-import Dashboard from "./Dashboard";
 import dashboard from '../../assets/css/Dashboard.module.css';
+import SearchResults from './SearchResults';
 
 class Search extends React.Component {
   constructor() {
@@ -14,16 +14,21 @@ class Search extends React.Component {
   render() {
     return (
       <section className={dashboard.section}>
-        <h3>Search for Articles</h3>
+        <div>Search for Articles</div>
   
         <form>
           <div>
-            <input type="text" placeholder="Keywords"/>
+            <input type="text" placeholder="Keywords"
+              value={this.state.searchInput}
+              onChange={e => {
+                this.setState({searchInput: e.target.value})
+              }}
+            />
           </div>
           
           <div>
             <select id="source">
-              <option>News Source</option>
+              <option>News Source (optional)</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -32,8 +37,16 @@ class Search extends React.Component {
             </select>
           </div>
           
-          <div className='button'>Search</div>
+          <div className='button' onClick={e => {
+            this.props.clickSearch(this.state);
+            this.setState({searchInput: ''});
+            }}
+          >Search</div>
         </form>
+
+        {this.props.searchResults.length && (
+          <SearchResults results={this.props.searchResults} />
+        )}
       </section>       
     )
   }
