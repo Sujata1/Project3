@@ -1,6 +1,6 @@
 import React from 'react';
 import {userCreationStatus} from '../../actions/createUser';
-import '../../assets/css/Login.css';
+import login from '../../assets/css/Login.module.css';
 
 class CreateAccount extends React.Component {
   constructor() {
@@ -28,7 +28,7 @@ class CreateAccount extends React.Component {
 
   render() {
     return (
-      <section id='createAccount'>
+      <section className={login.section}>
         <div>Welcome! Please complete all fields.</div>
         <form>
           <input type='text' placeholder='Your name' maxLength='20' autoComplete='fname'

@@ -1,4 +1,6 @@
 import React from "react";
+import Dashboard from "./Dashboard";
+import dashboard from '../../assets/css/Dashboard.module.css';
 
 class Search extends React.Component {
   constructor() {
@@ -11,7 +13,7 @@ class Search extends React.Component {
   
   render() {
     return (
-      <section id='search'>
+      <section className={dashboard.section}>
         <h3>Search for Articles</h3>
   
         <form>
