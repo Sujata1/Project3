@@ -4,19 +4,23 @@ var Schema = mongoose.Schema;
 
 var SourceSchema = new Schema({
 
-    name: {
+    sourceid: {
         type: String,
         required: true
     },
-    credibility: {
+    credtotal: {
         type: Number,
         required: true
     },
-    integrity: {
+    inttotal: {
         type: Number,
         required: true
     },
-    accountability: {
+    acctotal: {
+        type: Number,
+        required: true
+    },
+    totalusers: {
         type: Number,
         required: true
     }

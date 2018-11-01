@@ -78,6 +78,7 @@ router.get("/api/article/:q", (req, res) => {
             console.log(err);
           });
       }
+      
       res.json(response1);
     }).catch(function (err) {
       res.json(err);
@@ -93,4 +94,6 @@ router.get('/articlesdb/',function(req,res){
     return res.json(result)
   })
 })
+
+
 module.exports = router;
