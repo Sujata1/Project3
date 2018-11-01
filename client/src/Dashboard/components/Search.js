@@ -15,12 +15,13 @@ class Search extends React.Component {
         <h3>Search for Articles</h3>
   
         <form>
-          <div class="form-group">
-            <input type="text" placeholder="Search keywords..."/>
+          <div>
+            <input type="text" placeholder="Keywords"/>
           </div>
           
-          <div class="form-group">
+          <div>
             <select id="source">
+              <option>News Source</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -29,7 +30,7 @@ class Search extends React.Component {
             </select>
           </div>
           
-          <div className='button'>Go!</div>
+          <div className='button'>Search</div>
         </form>
       </section>       
     )

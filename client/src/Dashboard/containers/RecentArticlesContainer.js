@@ -1,18 +1,15 @@
 import {connect} from 'react-redux';
-import Dashboard from '../components/Dashboard';
+import RecentArticles from '../components/RecentArticles';
 
 const mapStateToProps = state => {
-  return {
-    recentArticles: [1, 2],
-    topSources: [1, 2]
-  };
-};
+  return {};
+}
 
 const mapDispatchToProps = dispatch => {
   return {};
-};
+}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Dashboard);
+)(RecentArticles);

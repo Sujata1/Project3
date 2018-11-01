@@ -64,7 +64,12 @@ $wide-padding: 20px 32px;
   }
 }
 
-input {
+input, select {
+  display: block;
+  box-sizing: border-box;
+  padding: 2px;
+  margin: 10px 0;
+  width: 100%;
   font-size: inherit;
   font-family: inherit;
 }
