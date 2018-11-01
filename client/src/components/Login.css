@@ -5,13 +5,19 @@
   align-items: center; }
 
 .button {
+  border: 1px solid #333;
   display: inline-block;
   padding: 10px 16px;
-  border: 1px solid #333;
   text-align: center;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.5s; }
   .button:hover {
     background-color: rgba(255, 255, 255, 0.1); }
+
+input {
+  font-size: inherit;
+  font-family: inherit; }
 
 .msg {
   color: darkred;
@@ -19,7 +25,7 @@
 
 section {
   padding: 20px 32px;
-  background-color: lightgreen;
+  background-color: #59a979;
   min-width: 345px;
   text-align: center; }
   section div {
