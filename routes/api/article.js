@@ -51,6 +51,7 @@ router.get("/api/article/:q", (req, res) => {
       sortBy: 'relevancy',
     }).then(response1 => {
       var count = 50;
+      var respnse_50=[];
       if(response1.articles.length<=count)
       {
         count = response1.articles.length
@@ -69,6 +70,7 @@ router.get("/api/article/:q", (req, res) => {
         result1.publishedAt = response1.articles[j].publishedAt
         result1.content = response1.articles[j].content
         // console.log(j);
+        respnse_50.push(result1);
         db.Article.create(result1)
           .then(function (dbArticle) {
             console.log(dbArticle);
@@ -78,7 +80,7 @@ router.get("/api/article/:q", (req, res) => {
             console.log(err);
           });
       }
-      res.json(response1);
+      res.json(respnse_50);
     }).catch(function (err) {
       res.json(err);
     });
@@ -89,7 +91,6 @@ router.get("/api/article/:q", (req, res) => {
 
 router.get('/articlesdb/',function(req,res){
   db.Article.find({}).then(result => {
-
     return res.json(result)
   })
 })
