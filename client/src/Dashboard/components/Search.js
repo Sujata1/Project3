@@ -1,6 +1,7 @@
 import React from "react";
 import dashboard from '../../assets/css/Dashboard.module.css';
 import SearchResults from './SearchResults';
+import {searchStatus} from '../../actions/searchArticles';
 
 class Search extends React.Component {
   constructor() {
@@ -44,7 +45,11 @@ class Search extends React.Component {
           >Search</div>
         </form>
 
-        {this.props.searchResults.length && (
+        {this.props.searchStatus === searchStatus.IN_PROGRESS && (
+          <div>Searching...</div>
+        )}
+
+        {Boolean(this.props.searchResults.length) && (
           <SearchResults results={this.props.searchResults} />
         )}
       </section>       

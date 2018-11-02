@@ -1,9 +1,11 @@
 import {connect} from 'react-redux';
+import {searchStatus, searchArticles} from '../../actions/searchArticles';
 import Search from '../components/Search';
 
 const mapStateToProps = state => {
   return {
-    searchResults: ['result', 'result']
+    searchResults: [],
+    searchStatus: state.search.status
   };
 }
 
@@ -11,7 +13,7 @@ const mapDispatchToProps = dispatch => {
   return {
     clickSearch: componentState => {
       if(componentState.searchInput) {
-        console.log('search!');
+        dispatch(searchArticles(componentState));
       }
     }
   };
