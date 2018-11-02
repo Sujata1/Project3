@@ -33,13 +33,19 @@ class Search extends React.Component {
       })
       .catch(err => console.log(err));
   }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.clickSearch(this.state);
+    this.setState({searchInput: ''});
+  }
   
   render() {
     return (
       <section className={dashboard.section}>
         <div>Search for Articles</div>
   
-        <form>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <div>
             <input type="text" placeholder="Keywords"
               value={this.state.searchInput}
@@ -57,11 +63,7 @@ class Search extends React.Component {
             </select>
           </div>
           
-          <div className='button' onClick={e => {
-            this.props.clickSearch(this.state);
-            this.setState({searchInput: ''});
-            }}
-          >Search</div>
+          <div className='button' onClick={e => this.handleSubmit(e)}>Search</div>
         </form>
 
         {this.props.searchStatus === searchStatus.IN_PROGRESS && (

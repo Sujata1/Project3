@@ -13,3 +13,20 @@
     margin-left: 0;
   }
 }
+
+.resultsWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  padding: $standard-padding;
+  margin-bottom: $vertical-space;
+  background-color: $shadow;
+
+  .articleButtons {
+    flex-shrink: 0;
+  }
+}

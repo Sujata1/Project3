@@ -1,11 +1,12 @@
+$block-opacity: 0.93;
 $black: #333;
 $light-black: rgba(0,0,0,0.05);
 $grey: #777;
-$shadow: #e5e1e1;
+$shadow: rgba(229, 225, 225, 0.7);
 $white: snow;
-$green: #59a979;
-$dark-green: #3e7855;
-$blue: #3e5f76;
+$green: rgba(89,169,121, $block-opacity);
+$dark-green: rgba(62,120,85, $block-opacity);
+$blue: rgba(62,95,118, $block-opacity);
 
 $small-breakpoint: 540px;
 

@@ -27,12 +27,11 @@ export function searchArticles(containerState) {
             response.json().then(data => {
               if(data.message) {
                 dispatch(searchError(data.message));
-              } else if(data.articles) {
-                dispatch(searchResults(data.articles));
               } else {
-                dispatch(searchError('Oops! We can\'t find your articles.'));
-              }
-            })
+                console.log(data);
+                dispatch(searchResults(data));
+              }})
+            .catch(err => dispatch(searchError('Oops! We can\'t find your articles.')))
           }
         })
         .catch(err => dispatch(searchError('Oops! We can\'t find your articles.')))
