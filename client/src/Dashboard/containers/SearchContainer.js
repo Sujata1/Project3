@@ -1,12 +1,13 @@
 import {connect} from 'react-redux';
-import {searchStatus, searchArticles} from '../../actions/searchArticles';
+import {searchStatus, searchArticles, searchReset} from '../../actions/searchArticles';
 import Search from '../components/Search';
 
 const mapStateToProps = state => {
   return {
-    searchResults: [],
-    searchStatus: state.search.status
-  };
+    searchResults: state.search.results,
+    searchStatus: state.search.status,
+    sources: []
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -15,6 +16,9 @@ const mapDispatchToProps = dispatch => {
       if(componentState.searchInput) {
         dispatch(searchArticles(componentState));
       }
+    },
+    reset: () => {
+      dispatch(searchReset())
     }
   };
 }

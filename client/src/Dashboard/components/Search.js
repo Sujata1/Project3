@@ -8,8 +8,30 @@ class Search extends React.Component {
     super();
     this.state = {
       searchInput: '',
-      sourceInput: ''
+      sourceInput: '',
+      sources: []
     }
+  }
+
+  getOptions() {
+    return this.state.sources.map((source, i) => {
+      return <option value={source.id} key={i+1}>{source.name}</option>
+    })
+  }
+
+  componentDidMount() {
+    this.props.reset();
+    fetch('api/sources')
+      .then(response => {
+        if(response.ok) {
+          response.json().then(data => {
+            if(data.sources) {
+              this.setState({sources: data.sources});
+            }
+          })
+        }
+      })
+      .catch(err => console.log(err));
   }
   
   render() {
@@ -28,13 +50,10 @@ class Search extends React.Component {
           </div>
           
           <div>
-            <select id="source">
-              <option>News Source (optional)</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select onChange={e => {
+              this.setState({sourceInput: e.target.options[e.target.options.selectedIndex].value});
+            }}>
+              {[<option value='' key={0}>News Source (optional)</option>, ...this.getOptions()]}
             </select>
           </div>
           
