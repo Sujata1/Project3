@@ -8,30 +8,20 @@ class Search extends React.Component {
     super();
     this.state = {
       searchInput: '',
-      sourceInput: '',
-      sources: []
+      sourceInput: ''
     }
   }
 
   getOptions() {
-    return this.state.sources.map((source, i) => {
-      return <option value={source.id} key={i+1}>{source.name}</option>
-    })
+    let options = [];
+    for(let [id, name] of this.props.sources) {
+      options.push(<option value={id} key={id}>{name}</option>)
+    }
+    return options;
   }
 
   componentDidMount() {
-    this.props.reset();
-    fetch('api/sources')
-      .then(response => {
-        if(response.ok) {
-          response.json().then(data => {
-            if(data.sources) {
-              this.setState({sources: data.sources});
-            }
-          })
-        }
-      })
-      .catch(err => console.log(err));
+    this.props.getSources();
   }
 
   handleSubmit(e) {

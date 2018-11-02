@@ -7,7 +7,7 @@ router.get("/api/sources", (req, res) => {
 
   newsapi.v2.sources({
     language: 'en',
-    country: 'ca'
+    country: ''
   }).then(response => {
 
     db.Source.remove({}, function (err) {

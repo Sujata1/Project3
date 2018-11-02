@@ -1,4 +1,7 @@
-import {searchStatus, SEARCH_CALL, SEARCH_RESULTS, SEARCH_ERROR, SEARCH_RESET} from '../actions/searchArticles';
+import {
+  searchStatus, 
+  SEARCH_CALL, SEARCH_RESULTS, SEARCH_ERROR, SEARCH_RESET
+} from '../actions/searchArticles';
 
 const search = (state = {
   results: [],

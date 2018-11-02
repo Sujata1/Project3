@@ -1,17 +1,22 @@
 import {connect} from 'react-redux';
 import {searchArticles, searchReset} from '../../actions/searchArticles';
+import {getSources} from '../../actions/getSources';
 import Search from '../components/Search';
 
 const mapStateToProps = state => {
+  console.log('mapstate', state)
   return {
     searchResults: state.search.results,
     searchStatus: state.search.status,
-    sources: []
+    sources: state.sources
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    getSources: ()=> {
+      dispatch(getSources());
+    },
     clickSearch: componentState => {
       if(componentState.searchInput) {
         dispatch(searchArticles(componentState));

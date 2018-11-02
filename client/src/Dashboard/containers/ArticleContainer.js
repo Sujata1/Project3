@@ -2,7 +2,9 @@ import {connect} from 'react-redux';
 import Article from '../components/Article';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    sourcesMap: state.sources
+  };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -2,13 +2,18 @@ import React from 'react';
 import dashboard from '../../assets/css/Dashboard.module.css';
 
 const Article = props => {
+  let sourceName = false;
+  if(props.article.source) {
+    sourceName = props.sourcesMap.get(props.article.source);
+  }
+  
   return (
     <div className={dashboard.article}>
       <div>
         <span>
           {props.article.title}
-          {props.article.source && (
-            <i> ({props.article.source})</i>
+          {sourceName && (
+            <i> ({sourceName})</i>
           )}
         </span>
       </div>
