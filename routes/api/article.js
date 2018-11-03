@@ -22,7 +22,7 @@ router.get("/api/sources", (req, res) => {
         result.category = response.sources[i].category
         result.language = response.sources[i].language
         result.country = response.sources[i].country
-
+        
         db.Source.create(result)
           .then(function (dbSource) {
             console.log(dbSource)
