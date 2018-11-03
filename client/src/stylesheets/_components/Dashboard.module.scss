@@ -30,3 +30,21 @@
     flex-shrink: 0;
   }
 }
+
+.recentArticle {
+  display: flex;
+  padding: $standard-padding;
+
+  .imgWrapper {
+    width: 225px;
+    height: 175px;
+    overflow: hidden;
+    margin-right: $vertical-space;
+    @include thin-border($shadow);
+
+    .img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}

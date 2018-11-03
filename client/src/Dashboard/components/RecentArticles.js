@@ -4,9 +4,11 @@ import dashboard from '../../assets/css/Dashboard.module.css';
 const RecentArticles = props => {
   let articles = props.articles.map((article, i) => {
     return (
-    <div>
+    <div className={dashboard.recentArticle}>
+      <div className={dashboard.imgWrapper}>
+        <img className={dashboard.img} src={article.urlToImage} alt='article'></img>
+      </div>
       <div>{article.title}</div>
-      <img className={dashboard.recentImg} src={article.urlToImage} alt='article'></img>
     </div>
     )
   })
@@ -14,7 +16,7 @@ const RecentArticles = props => {
   return (
     <section className={dashboard.section}>
       <div>Your Recent Articles</div>
-      <div className={dashboard.recentArticle}>{articles}</div>
+      <div>{articles}</div>
     </section>       
   )
 }
