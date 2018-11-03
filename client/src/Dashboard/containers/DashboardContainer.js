@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import Dashboard from '../components/Dashboard';
+import {logout} from '../../actions/authenticate';
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +10,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    verifyTokenFailed: () => {
+      dispatch(logout());
+    }
+  };
 };
 
 export default connect(
