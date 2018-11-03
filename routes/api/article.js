@@ -14,10 +14,8 @@ router.get("/api/sources", (req, res) => {
     var result = {};
 
     for (var i = 0; i < response.sources.length; i++) {
-
-      db.Source.find({ sourceid: response.sources[i].sourceid }).then(dbsource => {
-        if (dbsource.length === 0) {
-
+      console.log(response.sources[i])
+      
           result = {}
           result.sourceid = response.sources[i].id
           result.name = response.sources[i].name
@@ -32,20 +30,13 @@ router.get("/api/sources", (req, res) => {
           result.totalusers = 0;
           db.Source.create(result)
             .then(function (dbSource) {
-              console.log(dbSource)
             })
             .catch(function (err) {
               return res.json(err);
             });
-            
-        }
-        
-     
-      }).catch(function (err) {
-        return res.json(err);
-      });
     }
     res.json(response)
+
   }).catch(function (err) {
     return res.json(err);
   });
