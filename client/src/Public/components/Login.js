@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import {loginStatus} from '../actions/authenticate';
-import './Login.css';
+import {loginStatus} from '../../actions/authenticate';
+import login from '../../assets/css/Login.module.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <section id='login'>
+      <section className={login.section}>
         <form>
           <input type='text' placeholder='User Email' maxLength='35' autoComplete='email'
             value={this.state.usernameInput}

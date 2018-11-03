@@ -1,16 +1,21 @@
+$block-opacity: 0.93;
 $black: #333;
-$light-black: rgba(0,0,0,0.1);
+$light-black: rgba(0,0,0,0.05);
 $grey: #777;
-$shadow: #e5e1e1;
+$shadow: rgba(229, 225, 225, 0.7);
 $white: snow;
-$green: #59a979;
-$blue: #3e5f76;
+$green: rgba(89,169,121, $block-opacity);
+$dark-green: rgba(62,120,85, $block-opacity);
+$blue: rgba(62,95,118, $block-opacity);
+
+$small-breakpoint: 540px;
 
 $body-font: 'Open Sans', Arial, sans-serif;
 $header-font: 'Raleway', Arial, sans-serif;
 
 $standard-padding: 10px 16px;
 $wide-padding: 20px 32px;
+$vertical-space: 6px;
 
 @mixin thin-border($color) {
   border: 1px solid $color;
@@ -48,29 +53,4 @@ $wide-padding: 20px 32px;
   left: 0;
   right: 0;
   margin: 8px;
-}
-
-.button {
-  @include thin-border($black);
-  display: inline-block;
-  padding: $standard-padding;
-  text-align: center;
-  cursor: pointer;
-  background-color: transparent;
-  transition: background-color 0.5s;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-input {
-  font-size: inherit;
-  font-family: inherit;
-}
-
-.msg {
-  @extend %xyCenter;
-  color: darkred;
-  padding: $standard-padding;
 }

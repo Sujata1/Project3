@@ -1,0 +1,32 @@
+@import '../global.scss';
+
+.section {
+  background-color: $dark-green;
+  margin: $standard-padding;
+
+  & > * {
+    margin-bottom: $vertical-space;
+  }
+
+  @media screen and (max-width: $small-breakpoint) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.resultsWrapper {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  padding: $standard-padding;
+  margin-bottom: $vertical-space;
+  background-color: $shadow;
+
+  .articleButtons {
+    flex-shrink: 0;
+  }
+}
