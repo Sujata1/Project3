@@ -7,7 +7,7 @@ router.get("/api/sources", (req, res) => {
 
   newsapi.v2.sources({
     language: 'en',
-    country: 'ca'
+    country: ''
   }).then(response => {
 
     db.Source.remove({}, function (err) {
@@ -40,16 +40,17 @@ router.get("/api/sources", (req, res) => {
   });
 });
 
-router.get("/api/article/:q", (req, res) => {
+router.get("/api/article/:q/:source?", (req, res) => {
 
    db.Article.remove({}, function (err) {
-    newsapi.v2.everything({
+    let options = {
       q: req.params.q,
-      from: '2018-10-01',
-      to: '2018-10-31',
       language: 'en',
-      sortBy: 'relevancy',
-    }).then(response1 => {
+      sortBy: 'relevancy'
+    }
+    if(req.params.source) options['sources'] = req.params.source;
+    newsapi.v2.everything(options)
+      .then(response1 => {
       var count = 50;
       var respnse_50=[];
       if(response1.articles.length<=count)
