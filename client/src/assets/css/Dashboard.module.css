@@ -1,0 +1,22 @@
+.section {
+  background-color: rgba(62, 120, 85, 0.93);
+  margin: 10px 16px; }
+  .section > * {
+    margin-bottom: 6px; }
+  @media screen and (max-width: 540px) {
+    .section {
+      margin-right: 0;
+      margin-left: 0; } }
+
+.resultsWrapper {
+  max-height: 400px;
+  overflow: auto; }
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  margin-bottom: 6px;
+  background-color: rgba(229, 225, 225, 0.7); }
+  .article .articleButtons {
+    flex-shrink: 0; }

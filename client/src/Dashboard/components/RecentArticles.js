@@ -2,12 +2,19 @@ import React from "react";
 import dashboard from '../../assets/css/Dashboard.module.css';
 
 const RecentArticles = props => {
-  let articles = ['These are your recent articles', ...props.articles.map(article => {return article.title})]
-.map(text => {return <div>{text}</div>})
+  let articles = props.articles.map((article, i) => {
+    return (
+    <div>
+      <div>{article.title}</div>
+      <img className={dashboard.recentImg} src={article.urlToImage} alt='article'></img>
+    </div>
+    )
+  })
 
   return (
     <section className={dashboard.section}>
-        {articles}
+      <div>Your Recent Articles</div>
+      <div className={dashboard.recentArticle}>{articles}</div>
     </section>       
   )
 }
