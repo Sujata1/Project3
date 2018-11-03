@@ -1,41 +1,66 @@
 const db = require("../.././models");
 const router = require("express").Router();
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('bbbe5e03f1b34fdfbe7823f7a7e6e3df');
 
-router.get("/api/rating/", (req, res) => {
+router.get("/api/sources", (req, res) => {
+
+    newsapi.v2.sources({
+        language: 'en',
+        country: ''
+    }).then(response => {
 
 
+        var result = {};
+
+        for (var i = 0; i < response.sources.length; i++) {
+
+            result = {}
+            result.sourceid = response.sources[i].id
+            result.name = response.sources[i].name
+            result.description = response.sources[i].description
+            result.url = response.sources[i].url
+            result.category = response.sources[i].category
+            result.language = response.sources[i].language
+            result.country = response.sources[i].country
+            result.credtotal = 0;
+            result.inttotal = 0;
+            result.acctotal = 0;
+            result.totalusers = 0;
+            db.Source.create(result)
+                .then(function (dbSource) {
+                })
+                .catch(function (err) {
+                    return res.json(err);
+                });
+        }
+        res.json(response)
+
+    }).catch(function (err) {
+        return res.json(err);
+    });
 });
 
+router.post("/api/srating/", (req, res) => {
 
-router.post("/api/source/", (req, res) => {
-
-    db.Source.find({ sourceid: req.params.sourceid }).then(dbsource => {
+    db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
         var source = []
-
-        console.log(dbsource)
-        if (dbsource.length === 0) {
-           
-            source.sourceid = req.params.sourceid;
-            source.credtotal = dbsource.credtotal + req.params.credtotal;
-            source.inttotal = dbsource.credtotal + req.params.credtotal;
-            source.acctotal = dbsource.credtotal + req.params.credtotal;
-            source.totalusers = 1;
-
-            db.Source.create(source).then(result => {
-                res.json("New Source");
-            }).catch(err => {
-                res.json(err);
-            })
+        console.log(dbsource);
+        if (dbsource.length != 0) {
+            console.log(dbsource.credtotal)
+        
+            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credtotal);
+            source.inttotal = dbsource.inttotal + req.body.inttotal;
+            source.acctotal = dbsource.acctotal + req.body.acctotal;
+            source.totalusers = parseInt(dbsource.totalusers + 1);
+            console.log(source)
         }
-        else{
-            source.credtotal = dbsource.credtotal + req.params.credtotal;
-            source.inttotal = dbsource.credtotal + req.params.credtotal;
-            source.acctotal = dbsource.credtotal + req.params.credtotal;
-            source.totalusers += 1;
-            db.Source.findByIdAndUpdate({_id: dbsource._id},source).then(result =>{
-                res.json("Ratings Submitted")
-            })
-        }
+        db.Source.findByIdAndUpdate(dbsource._id, source).then(result => {
+            res.json("Source Rating Updated");
+        }).catch(err => {
+            res.json(err);
+        })
+
     })
 
 
