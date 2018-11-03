@@ -8,6 +8,30 @@ var SourceSchema = new Schema({
         type: String,
         required: true
     },
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    url: {
+        type: String,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    language: {
+        type: String,
+        required: true
+    },
+    country: {
+        type: String,
+        required: true
+    },
     credtotal: {
         type: Number,
         required: true
