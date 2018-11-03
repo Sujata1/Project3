@@ -20,6 +20,7 @@ var SourceSchema = new Schema({
         type: Number,
         required: true
     }
+    
 });
 
 var Source = mongoose.model("Source", SourceSchema);
