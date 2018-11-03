@@ -14,6 +14,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Import routes and give the server access to them.
+var sourceroutes = require("./routes/api/source");
+
+app.use(sourceroutes);
+
 var userroutes = require("./routes/api/users");
 var authroutes = require("./routes/api/auth")
 app.use(userroutes);
