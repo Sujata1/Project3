@@ -6,7 +6,7 @@ const Article = props => {
   if(props.article.source) {
     sourceName = props.sourcesMap.get(props.article.source);
   }
-  
+  console.log(props.article)
   return (
     <div className={dashboard.article}>
       <div>

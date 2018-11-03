@@ -4,7 +4,6 @@ import {getSources} from '../../actions/getSources';
 import Search from '../components/Search';
 
 const mapStateToProps = state => {
-  console.log('mapstate', state)
   return {
     searchResults: state.search.results,
     searchStatus: state.search.status,
