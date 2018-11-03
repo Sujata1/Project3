@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+const valid = require('mongoose-unique-validator');
 
 var Schema = mongoose.Schema;
 
@@ -7,7 +8,9 @@ var SourceSchema = new Schema({
     sourceid: {
         type: String,
         required: true,
-        unique: true
+        index: true,
+        unique: true,
+        dropDups: true
     },
     name: {
         type: String,
@@ -49,9 +52,10 @@ var SourceSchema = new Schema({
         type: Number,
         required: true
     }
-    
+
 });
 
+SourceSchema.plugin(valid);
 var Source = mongoose.model("Source", SourceSchema);
 
 module.exports = Source;
