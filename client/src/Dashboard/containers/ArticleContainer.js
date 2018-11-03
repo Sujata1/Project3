@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import Article from '../components/Article';
+import { addRecentArticle } from '../../actions/addRecentArticle';
 
 const mapStateToProps = state => {
   return {
@@ -8,7 +9,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    addToRecentArticles: article => {
+      dispatch(addRecentArticle(article));
+    }
+  };
 };
 
 export default connect(

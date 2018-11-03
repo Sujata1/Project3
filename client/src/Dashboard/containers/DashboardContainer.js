@@ -3,7 +3,7 @@ import Dashboard from '../components/Dashboard';
 
 const mapStateToProps = state => {
   return {
-    recentArticles: [],
+    recentArticles: state.recentArticles,
     topSources: []
   };
 };
