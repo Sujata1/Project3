@@ -5,12 +5,17 @@
   margin: $standard-padding;
 
   & > * {
-    margin-bottom: $vertical-space;
+    margin: $vertical-space 0;
   }
 
   @media screen and (max-width: $small-breakpoint) {
     margin-right: 0;
     margin-left: 0;
+  }
+
+  h2 {
+    font-family: $header-font;
+    font-size: $header-size;
   }
 }
 
@@ -36,7 +41,9 @@
   padding: $standard-padding;
 
   .imgWrapper {
-    width: 225px;
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
     height: 175px;
     overflow: hidden;
     margin-right: $vertical-space;
@@ -44,7 +51,26 @@
 
     .img {
       height: 100%;
-      width: auto;
+    }
+  }
+
+  .article {
+    margin-bottom: 0;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  @media screen and (max-width: $small-breakpoint) {
+    flex-direction: column;
+
+    .imgWrapper {
+      max-width: none;
+      margin-right: 0;
+
+      .img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

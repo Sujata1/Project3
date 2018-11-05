@@ -1,21 +1,26 @@
 import React from "react";
 import dashboard from '../../assets/css/Dashboard.module.css';
+import ArticleContainer from "../containers/ArticleContainer";
 
 const RecentArticles = props => {
   let articles = props.articles.map((article, i) => {
     return (
-    <div className={dashboard.recentArticle}>
+    <div className={dashboard.recentArticle} key={i}>
       <div className={dashboard.imgWrapper}>
         <img className={dashboard.img} src={article.urlToImage} alt='article'></img>
       </div>
-      <div>{article.title}</div>
+      <ArticleContainer article={article} />
     </div>
     )
   })
 
+  if(articles.length > 3) {
+    articles = articles.slice(articles.length - 3);
+  }
+
   return (
     <section className={dashboard.section}>
-      <div>Your Recent Articles</div>
+      <h2>Your Recent Articles</h2>
       <div>{articles}</div>
     </section>       
   )
