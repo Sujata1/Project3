@@ -6,29 +6,32 @@ const RateModal = props => {
     <div className={dashboard.modalWrapper}>
       <section className={dashboard.section}>
         <h2>Rate This Article</h2>
-        <form> 
-          Credibile: 
-          <b>Disagree</b>
+
+        <div className={dashboard.ratingField}>
+          <span>This article is <b>credible</b>.</span>
+
           <input  id="credible" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
-          <b>Agree</b>
+        </div>
 
-          Accurate: 
-          <b>Agree</b> 
+        <div className={dashboard.ratingField}>
+          <span>This article is <b>accurate</b>.</span>
+
           <input id="accurate" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
-          <b>Disagree</b>
+        </div>
 
-          Relevant: 
-          <b>Agree</b> 
+        <div className={dashboard.ratingField}>
+          <span>This article is <b>relevant</b>.</span> 
+
           <input id="relevant" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
-          <b>Disagree</b>
+        </div>
+ 
+        <div>
+          <span className='button'>Submit Rating</span>
+          <span className='button' onClick={e => {
+            props.closeModal();
+          }}>Cancel</span>
+        </div>
 
-          <div>
-            <span className='button'>Submit Rating</span>
-            <span className='button' onClick={e => {
-              props.closeModal();
-            }}>Cancel</span>
-          </div>
-        </form>
       </section>
     </div>
   )
