@@ -25,14 +25,14 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        {Boolean(this.props.recentArticles.length) && (
-          <RecentArticlesContainer />
-        )}
-  
         <SearchContainer/>
         
         {Boolean(this.props.topSources.length) && (
           <TopSourcesContainer />
+        )}
+
+        {Boolean(this.props.recentArticles.length) && (
+          <RecentArticlesContainer />
         )}
 
         {this.props.showModal && (

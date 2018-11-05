@@ -9,17 +9,17 @@ const RateModal = props => {
         <form> 
           Credibile: 
           <b>Disagree</b>
-          <input  id="credible" type="text" class="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
+          <input  id="credible" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
           <b>Agree</b>
 
           Accurate: 
           <b>Agree</b> 
-          <input id="accurate" type="text" class="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
+          <input id="accurate" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
           <b>Disagree</b>
 
           Relevant: 
           <b>Agree</b> 
-          <input id="relevant" type="text" class="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
+          <input id="relevant" type="text" className="span2 slider" value="" data-slider-min="1" data-slider-max="10" data-slider-step="5" data-slider-value="[250,450]"/> 
           <b>Disagree</b>
 
           <div>
