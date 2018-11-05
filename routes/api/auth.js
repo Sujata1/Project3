@@ -5,6 +5,7 @@ const router = require("express").Router();
 router.get('/auth', verifytoken, function (req, res) {
    jwt.verify(req.token, 'secretkey', (err, authData) => {
     if (err) {
+      console.log(err)
       res.json({
         status: '404',
       });
