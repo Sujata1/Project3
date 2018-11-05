@@ -42,7 +42,7 @@ router.get("/api/sources", (req, res) => {
 });
 
 router.post("/api/srating/", (req, res) => {
-
+    console.log("req:"+req);
     db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
         var source = []
         console.log(dbsource);
