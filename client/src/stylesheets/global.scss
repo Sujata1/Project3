@@ -1,7 +1,7 @@
 $block-opacity: 0.93;
 $black: #333;
 $light-black: rgba(0,0,0,0.05);
-$more-black: rgba(0, 0, 0, 0.6);
+$more-black: rgba(0, 0, 0, 0.5);
 $grey: #777;
 $shadow: rgba(229, 225, 225, 0.7);
 $white: snow;
@@ -17,7 +17,7 @@ $header-size: 20px;
 
 $standard-padding: 10px 16px;
 $wide-padding: 20px 32px;
-$vertical-space: 6px;
+$vertical-space: 10px;
 
 @mixin thin-border($color) {
   border: 1px solid $color;
