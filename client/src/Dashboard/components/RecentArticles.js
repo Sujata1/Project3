@@ -15,7 +15,7 @@ const RecentArticles = props => {
   })
 
   if(articles.length > 3) {
-    articles = articles.slice(articles.length - 3);
+    articles = articles.slice(0, 3);
   }
 
   return (

@@ -2,6 +2,7 @@ import React from 'react';
 import SearchContainer from '../containers/SearchContainer';
 import TopSourcesContainer from '../containers/TopSourcesContainer';
 import RecentArticlesContainer from '../containers/RecentArticlesContainer';
+import RateModalContainer from '../containers/RateModalContainer';
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -32,6 +33,10 @@ class Dashboard extends React.Component {
         
         {Boolean(this.props.topSources.length) && (
           <TopSourcesContainer />
+        )}
+
+        {this.props.showModal && (
+          <RateModalContainer />
         )}
       </div>
     )

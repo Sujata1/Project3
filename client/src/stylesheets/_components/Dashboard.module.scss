@@ -17,6 +17,7 @@
     font-family: $header-font;
     font-size: $header-size;
     font-weight: bold;
+    color: $more-black;
   }
 }
 
@@ -73,5 +74,16 @@
         max-width: 100%;
       }
     }
+  }
+}
+
+.modalWrapper {
+  @extend %cover;
+  position: fixed;
+  @extend %xyCenter;
+  background-color: $more-black;
+
+  section {
+    background-color: $green;
   }
 }
