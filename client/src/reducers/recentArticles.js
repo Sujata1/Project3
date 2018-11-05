@@ -4,8 +4,8 @@ const recentArticles = (state = [], action) => {
   switch(action.type) {
     case RECENTARTICLES_ADD:
       return [
-        ...state,
-        action.article
+        action.article,
+        ...state
       ];
     case RECENTARTICLES_RESET:
       return [];
