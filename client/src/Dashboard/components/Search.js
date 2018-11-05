@@ -33,7 +33,7 @@ class Search extends React.Component {
   render() {
     return (
       <section className={dashboard.section}>
-        <div>Search for Articles</div>
+        <h2>Search for Articles</h2>
   
         <form onSubmit={e => this.handleSubmit(e)}>
           <div>
