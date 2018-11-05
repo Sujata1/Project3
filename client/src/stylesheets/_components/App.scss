@@ -62,7 +62,7 @@ section {
   @include thin-border($black);
   display: inline-block;
   padding: $standard-padding;
-  margin: 4px 2px;
+  margin-right: 4px;
   text-align: center;
   cursor: pointer;
   background-color: transparent;
@@ -87,6 +87,10 @@ input, select {
   @extend %xyCenter;
   color: darkred;
   padding: $standard-padding;
+}
+
+i {
+  font-style: italic;
 }
 
 #background {
