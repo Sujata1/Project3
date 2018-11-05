@@ -42,14 +42,15 @@ router.get("/api/sources", (req, res) => {
 });
 
 router.post("/api/srating/", (req, res) => {
-
+    console.log("req:"+req);
     db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
         var source = []
-        console.log(dbsource);
-        if (dbsource.length != 0) {
-            console.log(dbsource.credtotal)
+        console.log("dbsource: "+dbsource.length);
+        if (dbsource.length !== 0) {
+           
+            source.credtotal = dbsource.credtotal + parseInt(req.body.credtotal);
+            console.log("source credtotal: "+source.credtotal)
         
-            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credtotal);
             source.inttotal = dbsource.inttotal + req.body.inttotal;
             source.acctotal = dbsource.acctotal + req.body.acctotal;
             source.totalusers = parseInt(dbsource.totalusers + 1);
