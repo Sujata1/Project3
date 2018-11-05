@@ -5,7 +5,8 @@ import {
 
 const search = (state = {
   results: [],
-  status: searchStatus.COMPLETE
+  status: searchStatus.COMPLETE,
+  errorMsg: ''
 }, action) => {
   switch(action.type) {
     case SEARCH_RESET:
@@ -22,12 +23,13 @@ const search = (state = {
       }
     case SEARCH_RESULTS:
       return {
+        ...state,
         results: action.data,
         status: searchStatus.COMPLETE
       }
     case SEARCH_ERROR:
       return {
-        results: [],
+        ...state,
         status: searchStatus.ERROR,
         errorMsg: action.msg
       }

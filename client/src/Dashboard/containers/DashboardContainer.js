@@ -4,7 +4,7 @@ import {logout} from '../../actions/authenticate';
 
 const mapStateToProps = state => {
   return {
-    recentArticles: [],
+    recentArticles: state.recentArticles,
     topSources: []
   };
 };

@@ -6,7 +6,6 @@ const Article = props => {
   if(props.article.source) {
     sourceName = props.sourcesMap.get(props.article.source);
   }
-  
   return (
     <div className={dashboard.article}>
       <div>
@@ -18,8 +17,14 @@ const Article = props => {
         </span>
       </div>
       <div className={dashboard.articleButtons}>
-        <span className='button' onClick={props.rateArticle}>Rate</span>
-        <a href={props.article.url} target='_blank' rel='noopener noreferrer'><span className='button'>Go ➚</span></a>
+        <span className='button' onClick={e => {
+          props.addToRecentArticles(props.article);
+        }}>Rate</span>
+        <a href={props.article.url} target='_blank' rel='noopener noreferrer'>
+          <span className='button' onClick={e => {
+            props.addToRecentArticles(props.article);
+          }}>Go ➚</span>
+        </a>
       </div>
     </div>
   )

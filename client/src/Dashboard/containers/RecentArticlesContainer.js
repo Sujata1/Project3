@@ -2,7 +2,9 @@ import {connect} from 'react-redux';
 import RecentArticles from '../components/RecentArticles';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    articles: state.recentArticles
+  };
 }
 
 const mapDispatchToProps = dispatch => {

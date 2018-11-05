@@ -5,12 +5,18 @@
   margin: $standard-padding;
 
   & > * {
-    margin-bottom: $vertical-space;
+    margin: $vertical-space 0;
   }
 
   @media screen and (max-width: $small-breakpoint) {
     margin-right: 0;
     margin-left: 0;
+  }
+
+  h2 {
+    font-family: $header-font;
+    font-size: $header-size;
+    font-weight: bold;
   }
 }
 
@@ -28,5 +34,44 @@
 
   .articleButtons {
     flex-shrink: 0;
+  }
+}
+
+.recentArticle {
+  display: flex;
+  padding: $standard-padding;
+
+  .imgWrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    height: 175px;
+    overflow: hidden;
+    margin-right: $vertical-space;
+    @include thin-border($shadow);
+    background-color: $more-black;
+
+    .img {
+      max-height: 100%;
+    }
+  }
+
+  .article {
+    margin-bottom: 0;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  @media screen and (max-width: $small-breakpoint) {
+    flex-direction: column;
+
+    .imgWrapper {
+      max-width: none;
+      margin-right: 0;
+
+      .img {
+        max-width: 100%;
+      }
+    }
   }
 }
