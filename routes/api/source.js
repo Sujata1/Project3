@@ -65,7 +65,7 @@ router.post("/api/srating/", (req, res) => {
 
 });
 
-router.get("/api/sources",(req,res) =>{
+router.get("/api/sourcesdb",(req,res) =>{
         db.Source.find({})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
