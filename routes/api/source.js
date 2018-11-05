@@ -47,20 +47,19 @@ router.post("/api/srating/", (req, res) => {
         var source = []
         console.log(dbsource);
         if (dbsource.length != 0) {
-            console.log(dbsource.credtotal)
+            console.log(dbsource[0].credtotal)
         
-            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credtotal);
-            source.inttotal = dbsource.inttotal + req.body.inttotal;
-            source.acctotal = dbsource.acctotal + req.body.acctotal;
-            source.totalusers = parseInt(dbsource.totalusers + 1);
+            source.credtotal = parseInt(dbsource[0].credtotal + req.body.credtotal);
+            source.inttotal = parseInt(dbsource[0].inttotal + req.body.inttotal);
+            source.acctotal = parseInt(dbsource[0].acctotal + req.body.acctotal);
+            source.totalusers = parseInt(dbsource[0].totalusers + 1);
             console.log(source)
+            db.Source.findByIdAndUpdate(dbsource[0]._id, {source:1}).then(result => {
+                res.json("Source Rating Updated");
+            }).catch(err => {
+                res.json(err);
+            })
         }
-        db.Source.findByIdAndUpdate(dbsource._id, source).then(result => {
-            res.json("Source Rating Updated");
-        }).catch(err => {
-            res.json(err);
-        })
-
     })
 
 
