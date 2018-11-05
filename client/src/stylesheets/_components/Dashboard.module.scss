@@ -88,5 +88,29 @@
 
   section {
     background-color: $green;
+
+    .ratingField {
+      display: flex;
+      flex-direction: column;
+
+      & > * {
+        margin: $vertical-space 0;
+      }
+    }
+
+    .ratingScale {
+      display: flex;
+
+      & > span {
+        flex-grow: 1;
+        text-align: center;
+        padding: $standard-padding;
+        cursor: pointer;
+      }
+
+      .highlight {
+        background-color: $highlight;
+      }
+    }
   }
 }
