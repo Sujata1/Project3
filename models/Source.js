@@ -50,6 +50,10 @@ var SourceSchema = new Schema({
     totalusers: {
         type: Number,
         required: true
+    },
+    rating: {
+        type: Number,
+        required: true
     }
 
 });
