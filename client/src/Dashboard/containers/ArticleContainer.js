@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Article from '../components/Article';
-import { addRecentArticle } from '../../actions/addRecentArticle';
+import {addRecentArticle} from '../../actions/addRecentArticle';
+import {showModal} from '../../actions/rateArticle';
 
 const mapStateToProps = state => {
   return {
@@ -12,6 +13,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addToRecentArticles: article => {
       dispatch(addRecentArticle(article));
+    },
+    rateArticle: sourceid => {
+      dispatch(showModal(sourceid))
     }
   };
 };

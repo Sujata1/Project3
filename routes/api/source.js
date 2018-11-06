@@ -46,6 +46,7 @@ router.post("/api/srating/", (req, res) => {
     console.log("req:" + req.body.sourceid);
     db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
         var source = []
+        console.log('dbSource--------------');
         console.log(dbsource);
         if (dbsource.length != 0) {
             console.log("id: " + dbsource[0]._id)

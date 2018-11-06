@@ -17,12 +17,16 @@
     font-family: $header-font;
     font-size: $header-size;
     font-weight: bold;
+    color: $more-black;
+    margin-bottom: 20px;
+    cursor: default;
   }
 }
 
 .resultsWrapper {
   max-height: 400px;
   overflow: auto;
+  margin-top: 20px;
 }
 
 .article {
@@ -39,7 +43,7 @@
 
 .recentArticle {
   display: flex;
-  padding: $standard-padding;
+  margin: $vertical-space 0;
 
   .imgWrapper {
     display: flex;
@@ -71,6 +75,41 @@
 
       .img {
         max-width: 100%;
+      }
+    }
+  }
+}
+
+.modalWrapper {
+  @extend %cover;
+  position: fixed;
+  @extend %xyCenter;
+  background-color: $more-black;
+
+  section {
+    background-color: $green;
+
+    .ratingField {
+      display: flex;
+      flex-direction: column;
+
+      & > * {
+        margin: $vertical-space 0;
+      }
+    }
+
+    .ratingScale {
+      display: flex;
+
+      & > span {
+        flex-grow: 1;
+        text-align: center;
+        padding: $standard-padding;
+        cursor: pointer;
+      }
+
+      .highlight {
+        background-color: $highlight;
       }
     }
   }
