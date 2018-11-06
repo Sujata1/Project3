@@ -9,8 +9,7 @@ var SourceSchema = new Schema({
         type: String,
         required: true,
         index: true,
-        unique: true,
-        dropDups: true
+        unique: true
     },
     name: {
         type: String,
@@ -40,7 +39,7 @@ var SourceSchema = new Schema({
         type: Number,
         required: true
     },
-    inttotal: {
+    reltotal: {
         type: Number,
         required: true
     },

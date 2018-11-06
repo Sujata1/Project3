@@ -24,7 +24,7 @@ router.get("/api/sources", (req, res) => {
             result.language = response.sources[i].language
             result.country = response.sources[i].country
             result.credtotal = 0;
-            result.inttotal = 0;
+            result.reltotal = 0;
             result.acctotal = 0;
             result.totalusers = 0;
             db.Source.create(result)
@@ -42,6 +42,7 @@ router.get("/api/sources", (req, res) => {
 });
 
 router.post("/api/srating/", (req, res) => {
+<<<<<<< HEAD
 
     db.Source.find({ sourceid: req.body.source }).then(dbsource => {
         var source = []
@@ -53,17 +54,42 @@ router.post("/api/srating/", (req, res) => {
             source.acctotal = dbsource.inttotal + req.body.accurate;
             source.reltotal = dbsource.acctotal + req.body.relevant;
             source.totalusers = parseInt(dbsource.totalusers + 1);
+=======
+    console.log("req:"+req.body.sourceid);
+    db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
+        var source = []
+        console.log(dbsource);
+        if (dbsource.length != 0) {
+            console.log("id: "+dbsource[0]._id)
+            
+            source.credtotal = dbsource[0].credtotal +parseInt(req.body.credtotal);
+            source.reltotal = dbsource[0].reltotal + parseInt(req.body.reltotal);
+            source.acctotal =dbsource[0].acctotal +  parseInt(req.body.acctotal);
+            source.totalusers = dbsource[0].totalusers + 1;
+>>>>>>> master
             console.log(source)
+            db.Source.findByIdAndUpdate(dbsource[0]._id,   {$set:{
+                "credtotal": source.credtotal,
+                "reltotal": source.reltotal,
+                "acctotal": source.acctotal, 
+                "totalusers": source.totalusers
+               
+            }}).then(result => {
+                console.log("result: "+result);
+                res.json("Source Rating Updated");
+            }).catch(err => {
+                res.json(err);
+            })
         }
-        db.Source.findByIdAndUpdate(dbsource._id, source).then(result => {
-            res.json("Source Rating Updated");
-        }).catch(err => {
-            res.json(err);
-        })
-
     })
 
 
 });
+
+router.get("/api/sourcesdb",(req,res) =>{
+        db.Source.find({})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  });
 
 module.exports = router;
