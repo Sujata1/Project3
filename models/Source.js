@@ -39,7 +39,7 @@ var SourceSchema = new Schema({
         type: Number,
         required: true
     },
-    inttotal: {
+    reltotal: {
         type: Number,
         required: true
     },
