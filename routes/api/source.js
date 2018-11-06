@@ -42,38 +42,24 @@ router.get("/api/sources", (req, res) => {
 });
 
 router.post("/api/srating/", (req, res) => {
-<<<<<<< HEAD
-
+    console.log("req:"+req.body.sourceid);
     db.Source.find({ sourceid: req.body.source }).then(dbsource => {
         var source = []
+        console.log('dbSource--------------');
         console.log(dbsource);
         if (dbsource.length != 0) {
-            console.log(dbsource.credtotal)
-        
-            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credible);
-            source.acctotal = dbsource.inttotal + req.body.accurate;
-            source.reltotal = dbsource.acctotal + req.body.relevant;
-            source.totalusers = parseInt(dbsource.totalusers + 1);
-=======
-    console.log("req:"+req.body.sourceid);
-    db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
-        var source = []
-        console.log(dbsource);
-        if (dbsource.length != 0) {
-            console.log("id: "+dbsource[0]._id)
             
-            source.credtotal = dbsource[0].credtotal +parseInt(req.body.credtotal);
-            source.reltotal = dbsource[0].reltotal + parseInt(req.body.reltotal);
-            source.acctotal =dbsource[0].acctotal +  parseInt(req.body.acctotal);
+            source.credtotal = dbsource[0].credtotal + parseInt(req.body.credible);
+            source.reltotal = dbsource[0].reltotal + parseInt(req.body.relevant);
+            source.acctotal = dbsource[0].acctotal +  parseInt(req.body.accurate);
             source.totalusers = dbsource[0].totalusers + 1;
->>>>>>> master
+            console.log('source ------------------------')
             console.log(source)
             db.Source.findByIdAndUpdate(dbsource[0]._id,   {$set:{
                 "credtotal": source.credtotal,
                 "reltotal": source.reltotal,
                 "acctotal": source.acctotal, 
                 "totalusers": source.totalusers
-               
             }}).then(result => {
                 console.log("result: "+result);
                 res.json("Source Rating Updated");

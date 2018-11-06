@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
     }).then(response => {
       if(response.ok) {
         response.json().then(data => {
-          if(data.status != 200) {
+          if(data.status !== '200') {
             this.props.verifyTokenFailed();
           }
         }).catch(err => console.log(err));
