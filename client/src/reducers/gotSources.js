@@ -1,4 +1,4 @@
-import {GOT_SOURCES} from '../actions/getSources';
+import {GOT_SOURCES, GOT_TOPSOURCES} from '../actions/getSources';
 
 const sources = (state = [], action) => {
   switch(action.type) {
@@ -9,4 +9,13 @@ const sources = (state = [], action) => {
   }
 }
 
-export default sources;
+const topSources = (state = [], action) => {
+  switch(action.type) {
+    case GOT_TOPSOURCES:
+      return action.sources
+    default:
+      return state;
+  }
+}
+
+export {sources, topSources};
