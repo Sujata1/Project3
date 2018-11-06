@@ -4,11 +4,13 @@ const modal = (state = {show: false}, action) => {
   switch(action.type) {
     case MODAL_SHOW: 
       return {
-        show: true
+        show: true,
+        source: action.sourceid
       }
     case MODAL_HIDE:
       return {
-        show: false
+        show: false,
+        source: null
       }
     default:
       return state;

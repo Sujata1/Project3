@@ -18,7 +18,7 @@ const Article = props => {
       </div>
       <div className={dashboard.articleButtons}>
         <span className='button' onClick={e => {
-          props.rateArticle();
+          props.rateArticle(props.article.source);
           props.addToRecentArticles(props.article);
         }}>Rate</span>
         <a href={props.article.url} target='_blank' rel='noopener noreferrer'>

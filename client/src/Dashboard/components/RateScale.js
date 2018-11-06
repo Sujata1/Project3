@@ -6,14 +6,18 @@ class RateScale extends React.Component {
     return this.props.currentValue >= value ? dashboard.highlight : ''
   }
 
-  handleClick(e) {
-
+  handleClick(e, clickValue) {
+    this.props.ratingClick(clickValue);
   }
 
   render() {
     let scale = [];
-    for(let i = 1; i <= 7; i++) {
-      scale.push(<span className={this.highlight(i)}>{i}</span>)
+    for(let i = 1; i <= 10; i++) {
+      scale.push(<span 
+        className={this.highlight(i)} 
+        onClick={e => this.handleClick(e, i)}
+        key={i}
+      >{i}</span>)
     }
 
     return (

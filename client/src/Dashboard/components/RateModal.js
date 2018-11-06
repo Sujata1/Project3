@@ -3,9 +3,10 @@ import RateScale from './RateScale';
 import dashboard from '../../assets/css/Dashboard.module.css';
 
 class RateModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      source: props.source,
       credible: 0,
       accurate: 0,
       relevant: 0
@@ -20,21 +21,32 @@ class RateModal extends React.Component {
   
           <div className={dashboard.ratingField}>
             <span>This article is <b>credible</b>.</span>
-            <RateScale category='credible' currentValue={this.state.credible} />
+            <RateScale 
+              category='credible' currentValue={this.state.credible} 
+              ratingClick={clickValue => this.setState({credible: clickValue})} 
+            />
           </div>
   
           <div className={dashboard.ratingField}>
             <span>This article is <b>accurate</b>.</span>
-            <RateScale category='accurate' currentValue={this.state.accurate} />
+            <RateScale 
+              category='accurate' currentValue={this.state.accurate}
+              ratingClick={clickValue => this.setState({accurate: clickValue})}
+            />
           </div>
   
           <div className={dashboard.ratingField}>
             <span>This article is <b>relevant</b>.</span> 
-            <RateScale category='relevant' currentValue={this.state.relevant} />
+            <RateScale 
+              category='relevant' currentValue={this.state.relevant}
+              ratingClick={clickValue => this.setState({relevant: clickValue})}
+            />
           </div>
    
           <div>
-            <span className='button'>Submit Rating</span>
+            <span className='button' onClick={e => {
+              this.props.submitRating(this.state);
+            }}>Submit Rating</span>
             <span className='button' onClick={e => {
               this.props.closeModal();
             }}>Cancel</span>

@@ -3,7 +3,6 @@ import Dashboard from '../components/Dashboard';
 import {logout} from '../../actions/authenticate';
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     recentArticles: state.recentArticles,
     topSources: [],

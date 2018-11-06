@@ -43,15 +43,15 @@ router.get("/api/sources", (req, res) => {
 
 router.post("/api/srating/", (req, res) => {
 
-    db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
+    db.Source.find({ sourceid: req.body.source }).then(dbsource => {
         var source = []
         console.log(dbsource);
         if (dbsource.length != 0) {
             console.log(dbsource.credtotal)
         
-            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credtotal);
-            source.inttotal = dbsource.inttotal + req.body.inttotal;
-            source.acctotal = dbsource.acctotal + req.body.acctotal;
+            source.credtotal = parseInt(dbsource.credtotal) + parseInt(req.body.credible);
+            source.acctotal = dbsource.inttotal + req.body.accurate;
+            source.reltotal = dbsource.acctotal + req.body.relevant;
             source.totalusers = parseInt(dbsource.totalusers + 1);
             console.log(source)
         }
