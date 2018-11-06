@@ -35,9 +35,11 @@
   padding: $standard-padding;
   margin-bottom: $vertical-space;
   background-color: $shadow;
+  @extend %back-gradient;
 
   .articleButtons {
     flex-shrink: 0;
+    padding-left: $vertical-space;
   }
 }
 
@@ -116,5 +118,35 @@
         background-color: $highlight;
       }
     }
+  }
+}
+
+.scoreboard {
+  & * {
+    cursor: default;
+  }
+
+  .source {
+    display: flex;
+    justify-content: space-between;
+    margin: $vertical-space 0;
+    @extend %back-gradient;
+
+      & > div {
+        padding: $standard-padding;
+        
+        &:first-child {
+          background-color: $green;
+          flex-grow: 1;
+          font-size: $header-size;
+        }
+
+        &:last-child {
+          display: flex;
+          flex-direction: column;
+          background-color: $highlight;
+        }
+      }
+
   }
 }

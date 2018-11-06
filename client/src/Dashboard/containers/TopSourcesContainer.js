@@ -4,7 +4,9 @@ import {getTopSources} from '../../actions/getSources';
 
 const mapStateToProps = state => {
   return {
-    sources: state.topSources
+    sources: state.topSources,
+    showLess: 3,
+    showMore: 10
   };
 }
 

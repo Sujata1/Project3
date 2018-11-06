@@ -43,22 +43,17 @@ router.get("/api/sources", (req, res) => {
 });
 
 router.post("/api/srating/", (req, res) => {
-    console.log("req:" + req.body.sourceid);
-    db.Source.find({ sourceid: req.body.sourceid }).then(dbsource => {
-        var source = []
-        console.log('dbSource--------------');
-        console.log(dbsource);
+    console.log("req:" + req.body.source);
+    db.Source.find({ sourceid: req.body.source }).then(dbsource => {
+        var source = {}
         if (dbsource.length != 0) {
-            console.log("id: " + dbsource[0]._id)
-
-            source.credtotal = dbsource[0].credtotal + parseInt(req.body.credtotal);
-            source.reltotal = dbsource[0].reltotal + parseInt(req.body.reltotal);
-            source.acctotal = dbsource[0].acctotal + parseInt(req.body.acctotal);
+            source.credtotal = dbsource[0].credtotal + parseInt(req.body.credible);
+            source.reltotal = dbsource[0].reltotal + parseInt(req.body.relevant);
+            source.acctotal = dbsource[0].acctotal + parseInt(req.body.accurate);
             source.totalusers = dbsource[0].totalusers + 1;
             let totalRating = source.credtotal + source.reltotal + source.acctotal;
             source.rating = totalRating / source.totalusers;
-            console.log("rating: " + source.rating)
-            console.log("source: " + source)
+
             db.Source.findByIdAndUpdate(dbsource[0]._id, {
                 $set: {
                     "credtotal": source.credtotal,

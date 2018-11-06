@@ -31,12 +31,12 @@ class Dashboard extends React.Component {
     return (
       <div>
         <SearchContainer/>
-        
-        <TopSourcesContainer />
 
         {Boolean(this.props.recentArticles.length) && (
           <RecentArticlesContainer />
         )}
+        
+        <TopSourcesContainer />
 
         {this.props.showModal && (
           <RateModalContainer />

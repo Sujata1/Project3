@@ -26,9 +26,10 @@ function gotSources(sources) {
 
 export function getTopSources() {
   return dispatch => {
-    fetch('/api/sourcesdb').then(response => {
+    fetch('/api/toptenrating').then(response => {
       if(response.ok) {
         response.json().then(data => {
+          console.log(data);
           let sources = data
             .filter(src => {
               return src.totalusers > 0;
@@ -41,12 +42,8 @@ export function getTopSources() {
                 relevantScore: src.reltotal / src.totalusers
               }
             })
-            .sort((a, b) => {
-              a = a.credibleScore + a.accurateScore + a.relevantScore / 3;
-              b = b.credibleScore + b.accurateScore + b.relevantScore / 3;
-              return b - a;
-            })
-          dispatch(gotTopSources(sources.slice(0, 5)))
+          console.log(sources);
+          dispatch(gotTopSources(sources));
         }).catch(err => console.log(err));
       }
     }).catch(err => {console.log(err)});
