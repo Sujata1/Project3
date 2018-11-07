@@ -29,7 +29,6 @@ export function getTopSources() {
     fetch('/api/toptenrating').then(response => {
       if(response.ok) {
         response.json().then(data => {
-          console.log(data);
           let sources = data
             .filter(src => {
               return src.totalusers > 0;
@@ -37,12 +36,12 @@ export function getTopSources() {
             .map(src => {
               return {
                 name: src.name,
+                description: src.description,
                 credibleScore: src.credtotal / src.totalusers,
                 accurateScore: src.acctotal / src.totalusers,
                 relevantScore: src.reltotal / src.totalusers
               }
             })
-          console.log(sources);
           dispatch(gotTopSources(sources));
         }).catch(err => console.log(err));
       }
