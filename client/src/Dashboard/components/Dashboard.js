@@ -5,7 +5,12 @@ import RecentArticlesContainer from '../containers/RecentArticlesContainer';
 import RateModalContainer from '../containers/RateModalContainer';
 
 class Dashboard extends React.Component {
+
   componentDidMount() {
+    this.verifyToken();
+  }
+
+  verifyToken() {
     let token = localStorage.getItem('idToken');
     fetch('/auth', {
       headers: {
@@ -26,14 +31,12 @@ class Dashboard extends React.Component {
     return (
       <div>
         <SearchContainer/>
-        
-        {Boolean(this.props.topSources.length) && (
-          <TopSourcesContainer />
-        )}
 
         {Boolean(this.props.recentArticles.length) && (
           <RecentArticlesContainer />
         )}
+        
+        <TopSourcesContainer />
 
         {this.props.showModal && (
           <RateModalContainer />
