@@ -1,6 +1,6 @@
 
 var jwt = require('jsonwebtoken');
-const router = require("express").Router();
+const router = require('express').Router();
 
 router.get('/auth', verifytoken, function (req, res) {
    jwt.verify(req.token, 'secretkey', (err, authData) => {

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -15,12 +15,12 @@ const UserSchema = new Schema({
                 return input.length >= 6;
             },
             // Error Message
-            "Password should be longer minimum 6."
+            'Password should be longer minimum 6.'
         ]
     },
     email: {
         type: String,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+        match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
     },
     userCreated: {
         type: Date,
@@ -28,6 +28,6 @@ const UserSchema = new Schema({
     }
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;

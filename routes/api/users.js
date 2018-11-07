@@ -1,17 +1,17 @@
-const router = require("express").Router();
-const usersController = require("../../controllers/userController");
+const router = require('express').Router();
+const usersController = require('../../controllers/userController');
 
 
-router.route("/findAll")
+router.route('/findAll')
   .post(usersController.findAll);
 
-router.route("/find")
+router.route('/find')
   .post(usersController.findOne);
 
-router.route("/findByEmail")
+router.route('/findByEmail')
   .post(usersController.findByEmail);
 
-router.route("/createUser")
+router.route('/createUser')
   .post(usersController.create);
 
 module.exports = router;
