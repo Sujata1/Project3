@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require('../models');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bbbe5e03f1b34fdfbe7823f7a7e6e3df');
 
@@ -49,15 +49,15 @@ module.exports = {
     
                 db.Source.findByIdAndUpdate(dbsource[0]._id, {
                     $set: {
-                        "credtotal": source.credtotal,
-                        "reltotal": source.reltotal,
-                        "acctotal": source.acctotal,
-                        "totalusers": source.totalusers,
-                        "rating": source.rating
+                        'credtotal': source.credtotal,
+                        'reltotal': source.reltotal,
+                        'acctotal': source.acctotal,
+                        'totalusers': source.totalusers,
+                        'rating': source.rating
     
                     }
                 }).then(result => {
-                   res.json("Source Rating Updated");
+                   res.json('Source Rating Updated');
                 }).catch(err => {
                     res.json(err);
                 })

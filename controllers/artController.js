@@ -1,10 +1,9 @@
-const db = require("../models");
+const db = require('../models');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('bbbe5e03f1b34fdfbe7823f7a7e6e3df');
 
 module.exports = {
     addArticles: function (req, res) {
-        console.log("enter addartivles");
         db.Article.remove({}, function (err) {
             let options = {
                 q: req.params.q,

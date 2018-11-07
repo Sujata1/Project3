@@ -1,5 +1,5 @@
-const db = require("../models");
-const jwt = require("jsonwebtoken");
+const db = require('../models');
+const jwt = require('jsonwebtoken');
 
 // Defining methods for the booksController
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
         } else {
           res.json({
             validate: false,
-            status: "422",
+            status: '422',
 
           });
         }
@@ -40,7 +40,7 @@ module.exports = {
       .catch(err => {
         res.json({
           validate: false,
-          status: "422",
+          status: '422',
 
         });
 
@@ -66,7 +66,7 @@ module.exports = {
         } else {
           res.json({
             validate: false,
-            status: "422",
+            status: '422',
 
           });
         }
@@ -75,7 +75,7 @@ module.exports = {
       .catch(err => {
         res.json({
           validate: false,
-          status: "422",
+          status: '422',
 
         });
 
@@ -111,7 +111,7 @@ module.exports = {
             })
             .catch(err => {
               res.json({
-                status: "422",
+                status: '422',
                 validate: false
               });
             });

@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 const valid = require('mongoose-unique-validator');
 
 var Schema = mongoose.Schema;
@@ -59,6 +59,6 @@ var SourceSchema = new Schema({
 });
 
 SourceSchema.plugin(valid);
-var Source = mongoose.model("Source", SourceSchema);
+var Source = mongoose.model('Source', SourceSchema);
 
 module.exports = Source;
