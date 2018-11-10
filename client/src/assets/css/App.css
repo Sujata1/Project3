@@ -33,7 +33,7 @@ body {
 
 header {
   min-height: 44px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -45,12 +45,12 @@ header {
   header #headerText {
     position: absolute;
     z-index: -5;
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     font-family: "Raleway", Arial, sans-serif;
     letter-spacing: 10px;
     white-space: nowrap;
-    color: #333; }
+    color: rgba(0, 0, 0, 0.25); }
 
 main {
   max-width: 960px;
@@ -96,6 +96,7 @@ b {
   font-weight: bold; }
 
 #background {
+  margin: 0;
   background-image: url("../images/newspaper-background.jpg");
   background-size: cover;
   animation: landing-image;
