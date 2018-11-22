@@ -31,6 +31,10 @@ var ArticleSchema = new Schema({
   },
   content: {
     type: String,
+  },
+  rated:{
+    type: Boolean,
+    default: false
   }
 });
 

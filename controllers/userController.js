@@ -1,5 +1,6 @@
 const db = require('../models');
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcrypt");
 
 // Defining methods for the booksController
 module.exports = {
@@ -12,22 +13,31 @@ module.exports = {
   findOne: function (req, res) {
     db.User
       .findOne({
-        email: req.body.email,
-        password: req.body.password
+        email: req.body.email
+        // password: req.body.password
       })
       .then(dbUser => {
         if (dbUser !== null) {
+          var password = req.body.password;
+          var isPasswordCorrect = bcrypt.compareSync(password, dbUser.password); // true
           var user = dbUser.username;
-          jwt.sign({ user }, 'secretkey', { expiresIn: '300s' }, (err, token) => {
-            res.json({
-              validate: true,
-              message: 'Welcome ' + dbUser.username,
-              token: token,
-              id: dbUser.id,
-              username: dbUser.username,
-              email: dbUser.email
+          if (isPasswordCorrect) {
+            jwt.sign({ user }, 'secretkey', { expiresIn: '300s' }, (err, token) => {
+              res.json({
+                validate: true,
+                message: 'Welcome ' + dbUser.username,
+                token: token,
+                id: dbUser.id,
+                username: dbUser.username,
+                email: dbUser.email
+              });
             });
-          });
+          } else {
+            res.json({
+              validate: false,
+              status: '422',
+            });
+          }
         } else {
           res.json({
             validate: false,
@@ -89,6 +99,10 @@ module.exports = {
         if (data) {
           res.json({ err: 'This email is already associated with an account.' })
         } else {
+          var salt = bcrypt.genSaltSync(10);
+          // Hash the password with the salt
+          var hash = bcrypt.hashSync(req.body.password, salt);
+          req.body.password = hash;
           req.body.active = true;
           db.User
             .create(req.body)
@@ -122,12 +136,12 @@ module.exports = {
 
   updateStatus: function (req, res) {
     db.User
-      .findOneAndUpdate({ email: req.body.email},{$push:{active:req.body.active}})
-        .then(dbUser => {
-          
-          res.json('User is inactive');
+      .findOneAndUpdate({ email: req.body.email }, { $push: { active: req.body.active } })
+      .then(dbUser => {
+
+        res.json('User is inactive');
 
       })
-     
+
   },
 }
