@@ -89,6 +89,7 @@ module.exports = {
         if (data) {
           res.json({ err: 'This email is already associated with an account.' })
         } else {
+          req.body.active = true;
           db.User
             .create(req.body)
             .then(dbUser => {
@@ -117,5 +118,16 @@ module.exports = {
             });
         }
       })
-  }
-};
+  },
+
+  updateStatus: function (req, res) {
+    db.User
+      .findOneAndUpdate({ email: req.body.email},{$push:{active:req.body.active}})
+        .then(dbUser => {
+          
+          res.json('User is inactive');
+
+      })
+     
+  },
+}

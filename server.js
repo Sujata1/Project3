@@ -20,8 +20,10 @@ app.use(sourceroutes);
 
 var userroutes = require('./routes/api/users');
 var authroutes = require('./routes/api/auth')
+var userRatingroutes = require('./routes/api/userrating')
 app.use(userroutes);
 app.use(authroutes);
+app.use(userRatingroutes);
 
 var artroutes = require('./routes/api/article');
 

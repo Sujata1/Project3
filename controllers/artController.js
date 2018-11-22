@@ -30,7 +30,7 @@ module.exports = {
                         result1.urlToImage = response1.articles[j].urlToImage
                         result1.publishedAt = response1.articles[j].publishedAt
                         result1.content = response1.articles[j].content
-
+                            
                         response_50.push(result1);
                         db.Article.create(result1)
                             .then(function (dbArticle) {
