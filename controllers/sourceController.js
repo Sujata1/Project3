@@ -37,6 +37,7 @@ module.exports = {
     });
     },
     setRating: function (req,res){
+        
         db.Source.find({ sourceid: req.body.source }).then(dbsource => {
             var source = {}
             if (dbsource.length != 0) {

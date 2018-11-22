@@ -22,6 +22,10 @@ const UserSchema = new Schema({
         type: String,
         match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
     },
+    active: {
+        type: Boolean,
+        default: false
+    },
     userCreated: {
         type: Date,
         default: Date.now
