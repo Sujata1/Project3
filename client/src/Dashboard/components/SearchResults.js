@@ -13,29 +13,34 @@ class SearchResults extends React.Component {
   componentDidMount() {
     let userEmail = localStorage.getItem('userEmail');
     if(userEmail) {
-      this.props.results.forEach((article, i) => {
-        console.log(userEmail, article.url)
-        fetch('./findUserRating', {
-          method: 'POST',
-          body: JSON.stringify({
-            useremail: userEmail,
-            articleurl: article.url
-          }),
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8'
-          }
-        }).then(response => {
-          if(response.ok && response.body) {
-            response.json().then(data => {
-              if(data) {
-                let updatedArr = [...this.state.alreadyRated];
-                updatedArr[i] = true;
-                this.setState({alreadyRated: updatedArr});
+      alreadyRatedAsyncWrapper.call(this);
+
+      async function alreadyRatedAsyncWrapper() {
+        let alreadyRated = await Promise.all(this.props.results.map(async article => {
+          return await new Promise((resolve, reject) => {
+            fetch('./findUserRating', {
+              method: 'POST',
+              body: JSON.stringify({
+                useremail: userEmail,
+                articleurl: article.url
+              }),
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8'
               }
-            })
-          }
-        }).catch(err => console.log(err));
-      })
+            }).then(response => {
+              if(response.ok && response.body) {
+                response.json()
+                  .then(data => {
+                    if(data) resolve(true)
+                    else resolve(false)
+                  })
+                  .catch(err => reject())
+              } else reject();
+            }).catch(err => console.log(err));
+          })
+        }))
+        this.setState({ alreadyRated })
+      }
     }
   }
 
