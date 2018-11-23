@@ -5,12 +5,14 @@ const modal = (state = {show: false}, action) => {
     case MODAL_SHOW: 
       return {
         show: true,
-        source: action.sourceid
+        source: action.sourceid,
+        url: action.articleURL
       }
     case MODAL_HIDE:
       return {
         show: false,
-        source: null
+        source: null,
+        url: null
       }
     default:
       return state;

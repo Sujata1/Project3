@@ -17,10 +17,12 @@ const Article = props => {
         </span>
       </div>
       <div className={dashboard.articleButtons}>
-        <span className='button' onClick={e => {
-          props.rateArticle(props.article.source);
-          props.addToRecentArticles(props.article);
-        }}>Rate</span>
+        <span className={`button ${props.alreadyRated ? 'disabled' : ''}`} onClick={e => {
+          if(!props.alreadyRated) {
+            props.rateArticle(props.article.source, props.article.url);
+            props.addToRecentArticles(props.article);
+          }
+        }}>{props.alreadyRated ? 'Rated' : 'Rate'}</span>
         <a href={props.article.url} target='_blank' rel='noopener noreferrer'>
           <span className='button' onClick={e => {
             props.addToRecentArticles(props.article);

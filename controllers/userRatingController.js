@@ -12,8 +12,8 @@ module.exports = {
     findOne: function (req, res) {
         db.UserRating
             .findOne({
-                useremail: req.body.email,
-                articleurl: req.body.password
+                useremail: req.body.useremail,
+                articleurl: req.body.articleurl
             })
             .then(dbUserRating => {
                 res.json(dbUserRating)

@@ -31,6 +31,7 @@ export function loginUser(credentials) {
             dispatch(loginFail('User authentication failed.'))
           } else {
             localStorage.setItem('idToken', response.token);
+            localStorage.setItem('userEmail', response.email);
             dispatch(loginSuccess(response.username));
           }
         })
@@ -62,6 +63,7 @@ export function loginFail(msg) {
 export function logout() {
   return dispatch => {
     localStorage.removeItem('idToken');
+    localStorage.removeItem('userEmail')
     dispatch(searchReset());
     dispatch(resetRecentArticles());
     dispatch(logoutComplete());
