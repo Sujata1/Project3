@@ -6,7 +6,7 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alreadyRated: props.results.map(result => { return false })
+      alreadyRated: props.results.map(result => { return true })
     }
   }
 
@@ -16,8 +16,8 @@ class SearchResults extends React.Component {
       alreadyRatedAsyncWrapper.call(this);
 
       async function alreadyRatedAsyncWrapper() {
-        let alreadyRated = await Promise.all(this.props.results.map(async article => {
-          return await new Promise((resolve, reject) => {
+        let alreadyRated = await Promise.all(this.props.results.map(article => {
+          return new Promise((resolve, reject) => {
             fetch('./findUserRating', {
               method: 'POST',
               body: JSON.stringify({
