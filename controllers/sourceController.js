@@ -26,7 +26,7 @@ module.exports = {
             db.Source.create(result)
                 .then(function (dbSource) {
                 })
-                .catch(function (err) {
+                .catch(function(err) {
                     return res.json(err);
                 });
         }
