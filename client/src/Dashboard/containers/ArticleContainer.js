@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => {
     addToRecentArticles: article => {
       dispatch(addRecentArticle(article));
     },
-    rateArticle: sourceid => {
-      dispatch(showModal(sourceid))
+    rateArticle: (sourceid, articleURL) => {
+      dispatch(showModal(sourceid, articleURL))
     }
   };
 };

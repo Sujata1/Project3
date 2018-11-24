@@ -4,7 +4,8 @@ import {submitRating, hideModal} from '../../actions/rateArticle';
 
 const mapStateToProps = state => {
   return {
-    source: state.modal.source
+    source: state.modal.source,
+    url: state.modal.url
   };
 }
 

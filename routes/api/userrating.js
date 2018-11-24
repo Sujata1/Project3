@@ -5,7 +5,7 @@ const userRatingController = require('../../controllers/userRatingController');
 router.route('/findAll')
   .post(userRatingController.findAll);
 
-router.route('/find')
+router.route('/findUserRating')
   .post(userRatingController.findOne);
 
 router.route('/createUserRating')

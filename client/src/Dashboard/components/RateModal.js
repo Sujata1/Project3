@@ -7,6 +7,7 @@ class RateModal extends React.Component {
     super(props);
     this.state = {
       source: props.source,
+      url: props.url,
       credible: 0,
       accurate: 0,
       relevant: 0
