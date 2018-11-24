@@ -1,4 +1,4 @@
-import {loginSuccess} from './authenticate';
+import {loginUser} from './authenticate';
 
 // action types
 export const CREATEUSER_RESET = 'CREATEUSER_RESET';
@@ -47,7 +47,7 @@ export function createUser(containerState) {
                 dispatch(createUserFail('Database error.'))
               } else {
                 localStorage.setItem('idToken', data.token)
-                dispatch(loginSuccess(data.username));
+                dispatch(loginUser({email: emailInput, password: passwordInput}));
                 dispatch(createUserSuccess());
               }
             }

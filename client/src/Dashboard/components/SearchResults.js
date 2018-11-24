@@ -6,7 +6,7 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      alreadyRated: props.results.map(result => { return true })
+      alreadyRated: props.results.map(result => { return false })
     }
   }
 
